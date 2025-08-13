@@ -1102,24 +1102,7 @@ if (project?.log?.length > 0) {
                                                 )}
                                               />
 
-                                              {/* {!((makesByDeviceType["COMMUNICATION"] || []).includes(editedData[28])) && (
-                                                <TextField
-                                                  label="Enter Make"
-                                                  value={editedData[28] || ''}
-                                                  onChange={(e) => {
-                                                    const value = e.target.value;
-                                                    handleFieldChange(28, value);
-                                                    setPendingCustomMakes(prev => ({
-                                                      ...prev,
-                                                      COMMUNICATION: value   
-                                                    }));
-                                                  }}
-                                                  fullWidth
-                                                  size="small"
-                                                  margin="dense"
-                                                  placeholder="Enter custom make"
-                                                />
-                                              )} */}
+                                              
 
                                               <Typography variant="body2"><strong>Model:</strong></Typography>
                                               <Autocomplete
@@ -1150,24 +1133,7 @@ if (project?.log?.length > 0) {
                                                 )}
                                               />
 
-                                            {/* {!((modelsByDeviceType["COMMUNICATION"] || []).includes(editedData[29])) && (
-                                              <TextField
-                                                label="Enter Model"
-                                                value={editedData[29] || ''}
-                                                onChange={(e) => {
-                                                  const value = e.target.value;
-                                                  handleFieldChange(29, value);
-                                                  setPendingCustomModels(prev => ({
-                                                    ...prev,
-                                                    COMMUNICATION: value   
-                                                  }));
-                                                }}
-                                                fullWidth
-                                                size="small"
-                                                margin="dense"
-                                                placeholder="Enter custom model"
-                                              />
-                                            )} */}
+                                            
 
                                               <Typography variant="body2"><strong>TSS:</strong></Typography>
                                               <TextField value={editedData[30] || ''} onChange={(e) => handleFieldChange(30, e.target.value)} fullWidth size="small" margin="dense" />
@@ -1229,24 +1195,7 @@ if (project?.log?.length > 0) {
                                                 )}
                                               />
 
-                                              {/* {!((makesByDeviceType["COMMUNICATION"] || []).includes(editedData[28])) && (
-                                                <TextField
-                                                  label="Enter Make"
-                                                  value={editedData[28] || ''}
-                                                  onChange={(e) => {
-                                                    const value = e.target.value;
-                                                    handleFieldChange(28, value);
-                                                    setPendingCustomMakes(prev => ({
-                                                      ...prev,
-                                                      COMMUNICATION: value   
-                                                    }));
-                                                  }}
-                                                  fullWidth
-                                                  size="small"
-                                                  margin="dense"
-                                                  placeholder="Enter custom make"
-                                                />
-                                              )} */}
+                                              
 
                                               <Typography variant="body2"><strong>Model:</strong></Typography>
                                               <Autocomplete
@@ -1277,24 +1226,7 @@ if (project?.log?.length > 0) {
                                                 )}
                                               />
 
-                                            {/* {!((modelsByDeviceType["COMMUNICATION"] || []).includes(editedData[29])) && (
-                                              <TextField
-                                                label="Enter Model"
-                                                value={editedData[29] || ''}
-                                                onChange={(e) => {
-                                                  const value = e.target.value;
-                                                  handleFieldChange(29, value);
-                                                  setPendingCustomModels(prev => ({
-                                                    ...prev,
-                                                    COMMUNICATION: value   
-                                                  }));
-                                                }}
-                                                fullWidth
-                                                size="small"
-                                                margin="dense"
-                                                placeholder="Enter custom model"
-                                              />
-                                            )} */}
+                                            
                                               <Typography variant="body2"><strong>TSS:</strong></Typography>
                                               <TextField value={editedData[30] || ''} onChange={(e) => handleFieldChange(30, e.target.value)} fullWidth size="small" margin="dense" />
                                               <Typography variant="body2"><strong>Phone:</strong></Typography>
@@ -1350,24 +1282,7 @@ if (project?.log?.length > 0) {
                                                 )}
                                               />
 
-                                              {/* {!((makesByDeviceType["COMMUNICATION"] || []).includes(editedData[28])) && (
-                                                <TextField
-                                                  label="Enter Make"
-                                                  value={editedData[28] || ''}
-                                                  onChange={(e) => {
-                                                    const value = e.target.value;
-                                                    handleFieldChange(28, value);
-                                                    setPendingCustomMakes(prev => ({
-                                                      ...prev,
-                                                      COMMUNICATION: value   
-                                                    }));
-                                                  }}
-                                                  fullWidth
-                                                  size="small"
-                                                  margin="dense"
-                                                  placeholder="Enter custom make"
-                                                />
-                                              )} */}
+                                              
 
                                               <Typography variant="body2"><strong>Model:</strong></Typography>
                                               <Autocomplete
@@ -1398,24 +1313,7 @@ if (project?.log?.length > 0) {
                                                 )}
                                               />
 
-                                            {/* {!((modelsByDeviceType["COMMUNICATION"] || []).includes(editedData[29])) && (
-                                              <TextField
-                                                label="Enter Model"
-                                                value={editedData[29] || ''}
-                                                onChange={(e) => {
-                                                  const value = e.target.value;
-                                                  handleFieldChange(29, value);
-                                                  setPendingCustomModels(prev => ({
-                                                    ...prev,
-                                                    COMMUNICATION: value   
-                                                  }));
-                                                }}
-                                                fullWidth
-                                                size="small"
-                                                margin="dense"
-                                                placeholder="Enter custom model"
-                                              />
-                                            )} */}
+                                            
                                                </>
                                             );
                                           }
@@ -1467,24 +1365,7 @@ if (project?.log?.length > 0) {
                                                 )}
                                               />
 
-                                              {/* {!((makesByDeviceType["COMMUNICATION"] || []).includes(editedData[28])) && (
-                                                <TextField
-                                                  label="Enter Make"
-                                                  value={editedData[28] || ''}
-                                                  onChange={(e) => {
-                                                    const value = e.target.value;
-                                                    handleFieldChange(28, value);
-                                                    setPendingCustomMakes(prev => ({
-                                                      ...prev,
-                                                      COMMUNICATION: value   
-                                                    }));
-                                                  }}
-                                                  fullWidth
-                                                  size="small"
-                                                  margin="dense"
-                                                  placeholder="Enter custom make"
-                                                />
-                                              )} */}
+                                              
 
                                               <Typography variant="body2"><strong>Model:</strong></Typography>
                                               <Autocomplete
@@ -1515,24 +1396,7 @@ if (project?.log?.length > 0) {
                                                 )}
                                               />
 
-                                            {/* {!((modelsByDeviceType["COMMUNICATION"] || []).includes(editedData[29])) && (
-                                              <TextField
-                                                label="Enter Model"
-                                                value={editedData[29] || ''}
-                                                onChange={(e) => {
-                                                  const value = e.target.value;
-                                                  handleFieldChange(29, value);
-                                                  setPendingCustomModels(prev => ({
-                                                    ...prev,
-                                                    COMMUNICATION: value   
-                                                  }));
-                                                }}
-                                                fullWidth
-                                                size="small"
-                                                margin="dense"
-                                                placeholder="Enter custom model"
-                                              />
-                                            )} */}
+                                            
                                               
                                               </>
                                             );
@@ -1591,24 +1455,7 @@ if (project?.log?.length > 0) {
                                                 )}
                                               />
 
-                                              {/* {!((makesByDeviceType["COMMUNICATION"] || []).includes(editedData[28])) && (
-                                                <TextField
-                                                  label="Enter Make"
-                                                  value={editedData[28] || ''}
-                                                  onChange={(e) => {
-                                                    const value = e.target.value;
-                                                    handleFieldChange(28, value);
-                                                    setPendingCustomMakes(prev => ({
-                                                      ...prev,
-                                                      COMMUNICATION: value   
-                                                    }));
-                                                  }}
-                                                  fullWidth
-                                                  size="small"
-                                                  margin="dense"
-                                                  placeholder="Enter custom make"
-                                                />
-                                              )} */}
+                                              
                                               <Typography variant="body2"><strong>Model:</strong></Typography>
                                               <Autocomplete
                                                 freeSolo
@@ -1638,24 +1485,7 @@ if (project?.log?.length > 0) {
                                                 )}
                                               />
 
-                                            {/* {!((modelsByDeviceType["COMMUNICATION"] || []).includes(editedData[29])) && (
-                                              <TextField
-                                                label="Enter Model"
-                                                value={editedData[29] || ''}
-                                                onChange={(e) => {
-                                                  const value = e.target.value;
-                                                  handleFieldChange(29, value);
-                                                  setPendingCustomModels(prev => ({
-                                                    ...prev,
-                                                    COMMUNICATION: value   
-                                                  }));
-                                                }}
-                                                fullWidth
-                                                size="small"
-                                                margin="dense"
-                                                placeholder="Enter custom model"
-                                              />
-                                            )} */}
+                                            
                                               <Typography variant="body2"><strong>TSS:</strong></Typography>
                                               <TextField value={editedData[30] || ''} onChange={(e) => handleFieldChange(30, e.target.value)} fullWidth size="small" margin="dense" />
                                               <Typography variant="body2"><strong>Phone:</strong></Typography>
@@ -1887,24 +1717,7 @@ if (project?.log?.length > 0) {
                                           )}
                                         />
 
-                                      {/* {!((makesByDeviceType["CMS"] || []).includes(editedData[37])) && (
-                                        <TextField
-                                          label="Enter Make"
-                                          value={editedData[37] || ''}
-                                          onChange={(e) => {
-                                            const value = e.target.value;
-                                            handleFieldChange(37, value);
-                                            setPendingCustomMakes(prev => ({
-                                              ...prev,
-                                              CMS: value   
-                                            }));
-                                          }}
-                                          fullWidth
-                                          size="small"
-                                          margin="dense"
-                                          placeholder="Enter custom make"
-                                        />
-                                      )} */}
+                                      
 
                                       <Typography variant="body2"><strong>Model:</strong></Typography>
                                       
@@ -1936,24 +1749,7 @@ if (project?.log?.length > 0) {
                                           )}
                                         />
 
-                                        {/* {!((modelsByDeviceType["CMS"] || []).includes(editedData[33])) && (
-                                          <TextField
-                                            label="Enter Model"
-                                            value={editedData[33] || ''}
-                                            onChange={(e) => {
-                                              const value = e.target.value;
-                                              handleFieldChange(33, value);
-                                              setPendingCustomModels(prev => ({
-                                                ...prev,
-                                                CMS: value   
-                                              }));
-                                            }}
-                                            fullWidth
-                                            size="small"
-                                            margin="dense"
-                                            placeholder="Enter custom model"
-                                          />
-                                        )} */}
+                                        
                                     </>
                                   ) : (
                                     <>
@@ -2037,24 +1833,7 @@ if (project?.log?.length > 0) {
                                           )}
                                         />
 
-                                      {/* {!((makesByDeviceType["CCTV"] || []).includes(editedData[42])) && (
-                                        <TextField
-                                          label="Enter Make"
-                                          value={editedData[42] || ''}
-                                          onChange={(e) => {
-                                            const value = e.target.value;
-                                            handleFieldChange(42, value);
-                                            setPendingCustomMakes(prev => ({
-                                              ...prev,
-                                              CCTV: value  
-                                            }));
-                                          }}
-                                          fullWidth
-                                          size="small"
-                                          margin="dense"
-                                          placeholder="Enter custom make"
-                                        />
-                                      )} */}
+                                      
                                       <Typography variant="body2"><strong>Model:</strong></Typography>
                                         <Autocomplete
                                           freeSolo
@@ -2085,24 +1864,7 @@ if (project?.log?.length > 0) {
                                         />
 
 
-                                        {/* {!((modelsByDeviceType["CCTV"] || []).includes(editedData[43])) && (
-                                          <TextField
-                                            label="Enter Model"
-                                            value={editedData[43] || ''}
-                                            onChange={(e) => {
-                                              const value = e.target.value;
-                                              handleFieldChange(43, value);
-                                              setPendingCustomModels(prev => ({
-                                                ...prev,
-                                                CCTV: value   
-                                              }));
-                                            }}
-                                            fullWidth
-                                            size="small"
-                                            margin="dense"
-                                            placeholder="Enter custom model"
-                                          />
-                                        )} */}
+                                        
                                       
                                     </>
                                   ) : (
@@ -2182,24 +1944,7 @@ if (project?.log?.length > 0) {
                                           )}
                                         />
 
-                                      {/* {!((makesByDeviceType["MVDS"] || []).includes(editedData[50])) && (
-                                        <TextField
-                                          label="Enter Make"
-                                          value={editedData[50] || ''}
-                                          onChange={(e) => {
-                                            const value = e.target.value;
-                                            handleFieldChange(50, value);
-                                            setPendingCustomMakes(prev => ({
-                                              ...prev,
-                                              MVDS: value  
-                                            }));
-                                          }}
-                                          fullWidth
-                                          size="small"
-                                          margin="dense"
-                                          placeholder="Enter custom make"
-                                        />
-                                      )} */}
+                                      
                                       <Typography variant="body2"><strong>Model:</strong></Typography>
                                       <Autocomplete
                                           freeSolo
@@ -2230,24 +1975,7 @@ if (project?.log?.length > 0) {
                                         />
                                         
 
-                                        {/* {!((modelsByDeviceType["MVDS"] || []).includes(editedData[51])) && (
-                                          <TextField
-                                            label="Enter Model"
-                                            value={editedData[51] || ''}
-                                            onChange={(e) => {
-                                              const value = e.target.value;
-                                              handleFieldChange(51, value);
-                                              setPendingCustomModels(prev => ({
-                                                ...prev,
-                                                MVDS: value   
-                                              }));
-                                            }}
-                                            fullWidth
-                                            size="small"
-                                            margin="dense"
-                                            placeholder="Enter custom model"
-                                          />
-                                        )} */}
+                                        
                                     </>
                                   ) : (
                                     <>
@@ -2316,24 +2044,7 @@ if (project?.log?.length > 0) {
                                                 )}
                                               />
 
-                                              {/* {!((makesByDeviceType["UPS"] || []).includes(editedData[56])) && (
-                                                <TextField
-                                                  label="Enter Make"
-                                                  value={editedData[56] || ''}
-                                                  onChange={(e) => {
-                                                    const value = e.target.value;
-                                                    handleFieldChange(56, value);
-                                                    setPendingCustomMakes(prev => ({
-                                                      ...prev,
-                                                      UPS: value   
-                                                    }));
-                                                  }}
-                                                  fullWidth
-                                                  size="small"
-                                                  margin="dense"
-                                                  placeholder="Enter custom make"
-                                                />
-                                              )} */}
+                                              
                                             </>
                                           ) : (
                                             <>
@@ -2365,24 +2076,7 @@ if (project?.log?.length > 0) {
                                                 )}
                                               />
 
-                                              {/* {!((makesByDeviceType["SOLAR"] || []).includes(editedData[56])) && (
-                                                <TextField
-                                                  label="Enter Make"
-                                                  value={editedData[56] || ''}
-                                                  onChange={(e) => {
-                                                    const value = e.target.value;
-                                                    handleFieldChange(56, value);
-                                                    setPendingCustomMakes(prev => ({
-                                                      ...prev,
-                                                      SOLAR: value   
-                                                    }));
-                                                  }}
-                                                  fullWidth
-                                                  size="small"
-                                                  margin="dense"
-                                                  placeholder="Enter custom make"
-                                                />
-                                              )} */}
+                                              
                                             </>
                                           )}
 
@@ -2417,24 +2111,7 @@ if (project?.log?.length > 0) {
                                                 )}
                                               />
 
-                                            {/* {!((modelsByDeviceType["UPS"] || []).includes(editedData[57])) && (
-                                              <TextField
-                                                label="Enter Model"
-                                                value={editedData[57] || ''}
-                                                onChange={(e) => {
-                                                  const value = e.target.value;
-                                                  handleFieldChange(57, value);
-                                                  setPendingCustomModels(prev => ({
-                                                    ...prev,
-                                                    UPS: value   
-                                                  }));
-                                                }}
-                                                fullWidth
-                                                size="small"
-                                                margin="dense"
-                                                placeholder="Enter custom model"
-                                              />
-                                            )} */}
+                                            
                                           </>
                                           ) : (
                                             <>
@@ -2466,24 +2143,7 @@ if (project?.log?.length > 0) {
                                                 )}
                                               />
 
-                                              {/* {!((modelsByDeviceType["SOLAR"] || []).includes(editedData[57])) && (
-                                                <TextField
-                                                  label="Enter Model"
-                                                  value={editedData[57] || ''}
-                                                  onChange={(e) => {
-                                                    const value = e.target.value;
-                                                    handleFieldChange(57, value);
-                                                    setPendingCustomModels(prev => ({
-                                                      ...prev,
-                                                      SOLAR: value   
-                                                    }));
-                                                  }}
-                                                  fullWidth
-                                                  size="small"
-                                                  margin="dense"
-                                                  placeholder="Enter custom model"
-                                                />
-                                              )} */}
+                                              
                                             </>
                                           )} 
 
@@ -2563,24 +2223,7 @@ if (project?.log?.length > 0) {
                                           )}
                                         />
 
-                                      {/* {!((makesByDeviceType["RPS"] || []).includes(editedData[62])) && (
-                                        <TextField
-                                          label="Enter Make"
-                                          value={editedData[62] || ''}
-                                          onChange={(e) => {
-                                            const value = e.target.value;
-                                            handleFieldChange(62, value);
-                                            setPendingCustomMakes(prev => ({
-                                              ...prev,
-                                              RPS: value  
-                                            }));
-                                          }}
-                                          fullWidth
-                                          size="small"
-                                          margin="dense"
-                                          placeholder="Enter custom make"
-                                        />
-                                      )} */}
+                                      
                                       <Typography variant="body2"><strong>Model:</strong></Typography>
                                       <Autocomplete
                                           freeSolo
@@ -2610,24 +2253,7 @@ if (project?.log?.length > 0) {
                                           )}
                                         />
 
-                                        {/* {!((modelsByDeviceType["RPS"] || []).includes(editedData[63])) && (
-                                          <TextField
-                                            label="Enter Model"
-                                            value={editedData[63] || ''}
-                                            onChange={(e) => {
-                                              const value = e.target.value;
-                                              handleFieldChange(63, value);
-                                              setPendingCustomModels(prev => ({
-                                                ...prev,
-                                                RPS: value   
-                                              }));
-                                            }}
-                                            fullWidth
-                                            size="small"
-                                            margin="dense"
-                                            placeholder="Enter custom model"
-                                          />
-                                        )} */}
+                                        
                                       <Typography variant="body2"><strong>Outlet 1:</strong></Typography>
                                       <TextField
                                         value={editedData[64] || ''} onChange={(e) => handleFieldChange(64, e.target.value)} fullWidth size="small" margin="dense"
@@ -2737,24 +2363,7 @@ if (project?.log?.length > 0) {
                                                 )}
                                               />
 
-                                              {/* {!((makesByDeviceType["UPS"] || []).includes(editedData[72])) && (
-                                                <TextField
-                                                  label="Enter Make"
-                                                  value={editedData[72] || ''}
-                                                  onChange={(e) => {
-                                                    const value = e.target.value;
-                                                    handleFieldChange(72, value);
-                                                    setPendingCustomMakes(prev => ({
-                                                      ...prev,
-                                                      UPS: value  
-                                                    }));
-                                                  }}
-                                                  fullWidth
-                                                  size="small"
-                                                  margin="dense"
-                                                  placeholder="Enter custom make"
-                                                />
-                                              )} */}
+                                              
                                             </>
                                           ) : (
                                             <>
@@ -2786,24 +2395,7 @@ if (project?.log?.length > 0) {
                                                 )}
                                               />
 
-                                              {/* {!((makesByDeviceType["SOLAR"] || []).includes(editedData[72])) && (
-                                                <TextField
-                                                  label="Enter Make"
-                                                  value={editedData[72] || ''}
-                                                  onChange={(e) => {
-                                                    const value = e.target.value;
-                                                    handleFieldChange(56, value);
-                                                    setPendingCustomMakes(prev => ({
-                                                      ...prev,
-                                                      SOLAR: value   
-                                                    }));
-                                                  }}
-                                                  fullWidth
-                                                  size="small"
-                                                  margin="dense"
-                                                  placeholder="Enter custom make"
-                                                />
-                                              )} */}
+                                              
                                             </>
                                           )}
                                           
@@ -2838,24 +2430,7 @@ if (project?.log?.length > 0) {
                                                 )}
                                               />
 
-                                            {/* {!((modelsByDeviceType["UPS"] || []).includes(editedData[73])) && (
-                                              <TextField
-                                                label="Enter Model"
-                                                value={editedData[73] || ''}
-                                                onChange={(e) => {
-                                                  const value = e.target.value;
-                                                  handleFieldChange(73, value);
-                                                  setPendingCustomModels(prev => ({
-                                                    ...prev,
-                                                    UPS: value   
-                                                  }));
-                                                }}
-                                                fullWidth
-                                                size="small"
-                                                margin="dense"
-                                                placeholder="Enter custom model"
-                                              />
-                                            )} */}
+                                            
                                           </>
                                           ) : (
                                             <>
@@ -2887,24 +2462,7 @@ if (project?.log?.length > 0) {
                                                 )}
                                               />
 
-                                              {/* {!((modelsByDeviceType["SOLAR"] || []).includes(editedData[73])) && (
-                                                <TextField
-                                                  label="Enter Model"
-                                                  value={editedData[73] || ''}
-                                                  onChange={(e) => {
-                                                    const value = e.target.value;
-                                                    handleFieldChange(73, value);
-                                                    setPendingCustomModels(prev => ({
-                                                      ...prev,
-                                                      SOLAR: value   
-                                                    }));
-                                                  }}
-                                                  fullWidth
-                                                  size="small"
-                                                  margin="dense"
-                                                  placeholder="Enter custom model"
-                                                />
-                                              )} */}
+                                              
                                             </>
                                           )}
                                       </>
@@ -2981,24 +2539,7 @@ if (project?.log?.length > 0) {
                                           )}
                                         />
 
-                                      {/* {!((makesByDeviceType["RPS"] || []).includes(editedData[78])) && (
-                                        <TextField
-                                          label="Enter Make"
-                                          value={editedData[78] || ''}
-                                          onChange={(e) => {
-                                            const value = e.target.value;
-                                            handleFieldChange(78, value);
-                                            setPendingCustomMakes(prev => ({
-                                              ...prev,
-                                              RPS: value   
-                                            }));
-                                          }}
-                                          fullWidth
-                                          size="small"
-                                          margin="dense"
-                                          placeholder="Enter custom make"
-                                        />
-                                      )} */}
+                                      
                                         <Typography variant="body2"><strong>Model:</strong></Typography>
                                         <Autocomplete
                                           freeSolo
@@ -3027,24 +2568,7 @@ if (project?.log?.length > 0) {
                                             />
                                           )}
                                         />
-                                        {/* {!((modelsByDeviceType["RPS"] || []).includes(editedData[79])) && (
-                                          <TextField
-                                            label="Enter Model"
-                                            value={editedData[79] || ''}
-                                            onChange={(e) => {
-                                              const value = e.target.value;
-                                              handleFieldChange(79, value);
-                                              setPendingCustomModels(prev => ({
-                                                ...prev,
-                                                RPS: value   
-                                              }));
-                                            }}
-                                            fullWidth
-                                            size="small"
-                                            margin="dense"
-                                            placeholder="Enter custom model"
-                                          />
-                                        )} */}
+                                        
                                       <Typography variant="body2"><strong>Outlet 1:</strong></Typography>
                                       <TextField
                                         value={editedData[80] || ''} onChange={(e) => handleFieldChange(80, e.target.value)} fullWidth size="small" margin="dense"

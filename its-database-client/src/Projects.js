@@ -159,13 +159,7 @@ axios.get(endpoint)
     setFilteredProjects(projects);
   };
 
-  // const handleFilterClick = (filter) => {
-  //   setSelectedFilters(prevFilters => 
-  //     prevFilters.includes(filter) 
-  //       ? prevFilters.filter(f => f !== filter) // Remove filter if already selected
-  //       : [...prevFilters, filter] // Add filter if not selected
-  //   );
-  // };
+  
 
   const handleFilterClick = (filter) => {
     if (filter === "UPS") {

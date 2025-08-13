@@ -75,26 +75,26 @@ function UploadExcel() {
           
         }}>
           <Box display="flex" alignItems="center" justifyContent="space-between" mb={2} gap={2}>
-  <Button
-    onClick={() => navigate('/')}
-    sx={{
-      color: caltransDarkBlue,
-      textTransform: "none",
-      minWidth: 0,
-      p: 0
-    }}
-  >
-    <HomeIcon sx={{ fontSize: 36 }} />
-  </Button>
-  <Typography variant="h4" sx={{ 
-      color: caltransBlue, 
-      flexGrow: 1, 
-      textAlign: "center", 
-      marginRight: "36px" // offsets space taken by home icon
-    }}>
-    Upload Excel File
-  </Typography>
-</Box>
+            <Button
+              onClick={() => navigate('/')}
+              sx={{
+                color: caltransDarkBlue,
+                textTransform: "none",
+                minWidth: 0,
+                p: 0
+              }}
+            >
+              <HomeIcon sx={{ fontSize: 36 }} />
+            </Button>
+            <Typography variant="h4" sx={{ 
+                color: caltransBlue, 
+                flexGrow: 1, 
+                textAlign: "center", 
+                marginRight: "36px" // offsets space taken by home icon
+              }}>
+              Upload Excel File
+            </Typography>
+          </Box>
 
           {/* Back Button */}
           <Box display="flex" justifyContent="flex-start" mb={2}>

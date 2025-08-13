@@ -14,34 +14,34 @@ import { useNavigate } from 'react-router-dom';
 const caltransBlue = "#005A9C";
 const caltransDarkBlue = "#003F67";
 
-function stripPort(ip) {
-  if (!ip) return "";
-  return ip.split(":")[0];
-}
+// function stripPort(ip) {
+//   if (!ip) return "";
+//   return ip.split(":")[0];
+// }
 
-async function runWithConcurrencyLimit(tasks, limit = 5, signal) {
-  const results = [];
-  const executing = [];
+// async function runWithConcurrencyLimit(tasks, limit = 5, signal) {
+//   const results = [];
+//   const executing = [];
 
-  for (const task of tasks) {
-    if (signal?.aborted) {
-      console.warn("Aborted before task started. Skipping remaining tasks.");
-      break;
-    }
+//   for (const task of tasks) {
+//     if (signal?.aborted) {
+//       console.warn("Aborted before task started. Skipping remaining tasks.");
+//       break;
+//     }
 
-    const p = task();
-    results.push(p);
+//     const p = task();
+//     results.push(p);
 
-    const e = p.then(() => executing.splice(executing.indexOf(e), 1));
-    executing.push(e);
+//     const e = p.then(() => executing.splice(executing.indexOf(e), 1));
+//     executing.push(e);
 
-    if (executing.length >= limit) {
-      await Promise.race(executing);
-    }
-  }
+//     if (executing.length >= limit) {
+//       await Promise.race(executing);
+//     }
+//   }
 
-  return Promise.all(results);
-}
+//   return Promise.all(results);
+// }
 
 function UPSLiveData() {
   const { projects, upsDataMap, loading } = useContext(UPSDataContext);
