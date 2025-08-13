@@ -1,0 +1,651 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="ProstarMPPTDataLog" content="">
+<title>Prostar MPPT - Data Log</title>
+<link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
+<link href="ss.css" rel="stylesheet" type="text/css"><!--[if lt IE 8]><link href="ssie7.css" rel="stylesheet" type="text/css"><![endif]--><!--[if gte IE 8]><link href="ssie.css" rel="stylesheet" type="text/css"><![endif]--><!-- Copyright 2009, Morningstar Corporation -->
+<!--[if lt IE 8]>
+<link href="ssie7.css" rel="stylesheet" type="text/css">
+<![endif]-->
+<!--[if gte IE 8]>
+<link href="ssie.css" rel="stylesheet" type="text/css">
+<![endif]-->
+
+
+<!--  Copyright 2008, Morningstar Corporation    -->
+<script type="text/javascript" src="MBID.js"></script>
+<script type="text/javascript" src="utilities.js"></script>
+<script type="text/javascript" src="datalog.js"></script>
+<script type="text/javascript" src="product.js"></script>
+
+
+
+</head>
+<body onload="DLInit('Prostar MPPT')">
+
+<div id="menuid"><div class="idTopBorder"></div><div id="idTopBar"><div class="content"><div class="right"><h3>Prostar MPPT</h3></div><a href="http://www.morningstarcorp.com/"><img src="MSLogo.png" alt="logo" class="image"><h1><br></h1><h2></h2></a></div></div><div class="PrimNav"><ul><li><a href="liveview.html" class="first">Live View</a></li><li><a href="network.html" class="">Network</a></li><li><a href="datalog.html" class="">Data Log</a></li><li><a href="system.html" class="">System</a></li></ul></div></div>
+
+<h6>Data Log View</h6>
+
+<div id="logdata"></div>
+
+ <div id="navspan">Days 0 to -254</div>
+<div class="logView">
+
+<div class="logLabels">
+<table id="logLTbl" class="cLTbl" cellpadding="0">
+    <tbody id="logLTbdy"><tr class="tr1"><td class="lbl">Day</td></tr><tr class="tr0"><td class="lbl">Hour Meter</td></tr><tr class="tr0"><td class="lbl">Vb Min</td></tr><tr class="tr0"><td class="lbl">Vb Max</td></tr><tr class="tr0"><td class="lbl">Ah Charge</td></tr><tr class="tr0"><td class="lbl">Ah Load</td></tr><tr class="tr0"><td class="lbl">Va Max</td></tr><tr class="tr0"><td class="lbl">Absorption</td></tr><tr class="tr0"><td class="lbl">Equalization</td></tr><tr class="tr0"><td class="lbl">Float</td></tr><tr class="tr1"><td class="lbl">Alarms</td></tr><tr class="tr0"><td class="lbl">Array Faults</td></tr><tr class="tr0"><td class="lbl">Load Faults</td></tr></tbody>
+</table>
+</div>
+<div class="scrollCont">
+
+<table id="logTbl" class="cTbl" cellpadding="0">
+    <tbody id="logTbdy"><tr class="tr1"><td class="colL">Today</td><td class="colL">-1</td><td class="colL">-2</td><td class="colL">-3</td><td class="colL">-4</td><td class="colL">-5</td><td class="colL">-6</td><td class="colL">-7</td><td class="colL">-8</td><td class="colL">-9</td><td class="colL">-10</td><td class="colL">-11</td><td class="colL">-12</td><td class="colL">-13</td><td class="colL">-14</td><td class="colL">-15</td><td class="colL">-16</td><td class="colL">-17</td><td class="colL">-18</td><td class="colL">-19</td><td class="colL">-20</td><td class="colL">-21</td><td class="colL">-22</td><td class="colL">-23</td><td class="colL">-24</td><td class="colL">-25</td><td class="colL">-26</td><td class="colL">-27</td><td class="colL">-28</td><td class="colL">-29</td><td class="colL">-30</td><td class="colL">-31</td><td class="colL">-32</td><td class="colL">-33</td><td class="colL">-34</td><td class="colL">-35</td><td class="colL">-36</td><td class="colL">-37</td><td class="colL">-38</td><td class="colL">-39</td><td class="colL">-40</td><td class="colL">-41</td><td class="colL">-42</td><td class="colL">-43</td><td class="colL">-44</td><td class="colL">-45</td><td class="colL">-46</td><td class="colL">-47</td><td class="colL">-48</td><td class="colL">-49</td><td class="colL">-50</td><td class="colL">-51</td><td class="colL">-52</td><td class="colL">-53</td><td class="colL">-54</td><td class="colL">-55</td><td class="colL">-56</td><td class="colL">-57</td><td class="colL">-58</td><td class="colL">-59</td><td class="colL">-60</td><td class="colL">-61</td><td class="colL">-62</td><td class="colL">-63</td><td class="colL">-64</td><td class="colL">-65</td><td class="colL">-66</td><td class="colL">-67</td><td class="colL">-68</td><td class="colL">-69</td><td class="colL">-70</td><td class="colL">-71</td><td class="colL">-72</td><td class="colL">-73</td><td class="colL">-74</td><td class="colL">-75</td><td class="colL">-76</td><td class="colL">-77</td><td class="colL">-78</td><td class="colL">-79</td><td class="colL">-80</td><td class="colL">-81</td><td class="colL">-82</td><td class="colL">-83</td><td class="colL">-84</td><td class="colL">-85</td><td class="colL">-86</td><td class="colL">-87</td><td class="colL">-88</td><td class="colL">-89</td><td class="colL">-90</td><td class="colL">-91</td><td class="colL">-92</td><td class="colL">-93</td><td class="colL">-94</td><td class="colL">-95</td><td class="colL">-96</td><td class="colL">-97</td><td class="colL">-98</td><td class="colL">-99</td><td class="colL">-100</td><td class="colL">-101</td><td class="colL">-102</td><td class="colL">-103</td><td class="colL">-104</td><td class="colL">-105</td><td class="colL">-106</td><td class="colL">-107</td><td class="colL">-108</td><td class="colL">-109</td><td class="colL">-110</td><td class="colL">-111</td><td class="colL">-112</td><td class="colL">-113</td><td class="colL">-114</td><td class="colL">-115</td><td class="colL">-116</td><td class="colL">-117</td><td class="colL">-118</td><td class="colL">-119</td><td class="colL">-120</td><td class="colL">-121</td><td class="colL">-122</td><td class="colL">-123</td><td class="colL">-124</td><td class="colL">-125</td><td class="colL">-126</td><td class="colL">-127</td><td class="colL">-128</td><td class="colL">-129</td><td class="colL">-130</td><td class="colL">-131</td><td class="colL">-132</td><td class="colL">-133</td><td class="colL">-134</td><td class="colL">-135</td><td class="colL">-136</td><td class="colL">-137</td><td class="colL">-138</td><td class="colL">-139</td><td class="colL">-140</td><td class="colL">-141</td><td class="colL">-142</td><td class="colL">-143</td><td class="colL">-144</td><td class="colL">-145</td><td class="colL">-146</td><td class="colL">-147</td><td class="colL">-148</td><td class="colL">-149</td><td class="colL">-150</td><td class="colL">-151</td><td class="colL">-152</td><td class="colL">-153</td><td class="colL">-154</td><td class="colL">-155</td><td class="colL">-156</td><td class="colL">-157</td><td class="colL">-158</td><td class="colL">-159</td><td class="colL">-160</td><td class="colL">-161</td><td class="colL">-162</td><td class="colL">-163</td><td class="colL">-164</td><td class="colL">-165</td><td class="colL">-166</td><td class="colL">-167</td><td class="colL">-168</td><td class="colL">-169</td><td class="colL">-170</td><td class="colL">-171</td><td class="colL">-172</td><td class="colL">-173</td><td class="colL">-174</td><td class="colL">-175</td><td class="colL">-176</td><td class="colL">-177</td><td class="colL">-178</td><td class="colL">-179</td><td class="colL">-180</td><td class="colL">-181</td><td class="colL">-182</td><td class="colL">-183</td><td class="colL">-184</td><td class="colL">-185</td><td class="colL">-186</td><td class="colL">-187</td><td class="colL">-188</td><td class="colL">-189</td><td class="colL">-190</td><td class="colL">-191</td><td class="colL">-192</td><td class="colL">-193</td><td class="colL">-194</td><td class="colL">-195</td><td class="colL">-196</td><td class="colL">-197</td><td class="colL">-198</td><td class="colL">-199</td><td class="colL">-200</td><td class="colL">-201</td><td class="colL">-202</td><td class="colL">-203</td><td class="colL">-204</td><td class="colL">-205</td><td class="colL">-206</td><td class="colL">-207</td><td class="colL">-208</td><td class="colL">-209</td><td class="colL">-210</td><td class="colL">-211</td><td class="colL">-212</td><td class="colL">-213</td><td class="colL">-214</td><td class="colL">-215</td><td class="colL">-216</td><td class="colL">-217</td><td class="colL">-218</td><td class="colL">-219</td><td class="colL">-220</td><td class="colL">-221</td><td class="colL">-222</td><td class="colL">-223</td><td class="colL">-224</td><td class="colL">-225</td><td class="colL">-226</td><td class="colL">-227</td><td class="colL">-228</td><td class="colL">-229</td><td class="colL">-230</td><td class="colL">-231</td><td class="colL">-232</td><td class="colL">-233</td><td class="colL">-234</td><td class="colL">-235</td><td class="colL">-236</td><td class="colL">-237</td><td class="colL">-238</td><td class="colL">-239</td><td class="colL">-240</td><td class="colL">-241</td><td class="colL">-242</td><td class="colL">-243</td><td class="colL">-244</td><td class="colL">-245</td><td class="colL">-246</td><td class="colL">-247</td><td class="colL">-248</td><td class="colL">-249</td><td class="colL">-250</td><td class="colL">-251</td><td class="colL">-252</td><td class="colL">-253</td><td class="colL">-254</td></tr><tr class="tr0"><td class="colD">2y34d18h</td><td class="colD">2y33d18h</td><td class="colD">2y32d18h</td><td class="colD">2y31d18h</td><td class="colD">2y30d18h</td><td class="colD">2y29d18h</td><td class="colD">2y28d18h</td><td class="colD">2y27d19h</td><td class="colD">2y26d19h</td><td class="colD">2y25d19h</td><td class="colD">2y24d19h</td><td class="colD">2y23d19h</td><td class="colD">2y22d19h</td><td class="colD">2y21d19h</td><td class="colD">2y20d19h</td><td class="colD">2y19d19h</td><td class="colD">2y18d19h</td><td class="colD">2y17d19h</td><td class="colD">2y16d20h</td><td class="colD">2y15d20h</td><td class="colD">2y14d20h</td><td class="colD">2y13d20h</td><td class="colD">2y12d20h</td><td class="colD">2y11d20h</td><td class="colD">2y10d20h</td><td class="colD">2y9d20h</td><td class="colD">2y8d20h</td><td class="colD">2y7d21h</td><td class="colD">2y6d21h</td><td class="colD">2y5d21h</td><td class="colD">2y4d21h</td><td class="colD">2y3d21h</td><td class="colD">2y2d21h</td><td class="colD">2y1d21h</td><td class="colD">2y0d21h</td><td class="colD">1y364d21h</td><td class="colD">1y363d21h</td><td class="colD">1y362d21h</td><td class="colD">1y361d21h</td><td class="colD">1y360d22h</td><td class="colD">1y359d22h</td><td class="colD">1y358d22h</td><td class="colD">1y357d22h</td><td class="colD">1y356d22h</td><td class="colD">1y355d22h</td><td class="colD">1y354d22h</td><td class="colD">1y353d22h</td><td class="colD">1y352d22h</td><td class="colD">1y351d22h</td><td class="colD">1y350d23h</td><td class="colD">1y349d23h</td><td class="colD">1y348d23h</td><td class="colD">1y347d23h</td><td class="colD">1y346d23h</td><td class="colD">1y345d23h</td><td class="colD">1y344d23h</td><td class="colD">1y343d23h</td><td class="colD">1y342d23h</td><td class="colD">1y341d23h</td><td class="colD">1y340d23h</td><td class="colD">1y340d0h</td><td class="colD">1y339d0h</td><td class="colD">1y338d0h</td><td class="colD">1y337d0h</td><td class="colD">1y336d0h</td><td class="colD">1y335d0h</td><td class="colD">1y334d0h</td><td class="colD">1y333d0h</td><td class="colD">1y332d0h</td><td class="colD">1y331d1h</td><td class="colD">1y330d1h</td><td class="colD">1y329d1h</td><td class="colD">1y328d1h</td><td class="colD">1y327d1h</td><td class="colD">1y326d1h</td><td class="colD">1y325d1h</td><td class="colD">1y324d1h</td><td class="colD">1y323d1h</td><td class="colD">1y322d1h</td><td class="colD">1y321d1h</td><td class="colD">1y320d2h</td><td class="colD">1y319d2h</td><td class="colD">1y318d2h</td><td class="colD">1y317d2h</td><td class="colD">1y316d2h</td><td class="colD">1y315d2h</td><td class="colD">1y314d2h</td><td class="colD">1y313d2h</td><td class="colD">1y312d2h</td><td class="colD">1y311d2h</td><td class="colD">1y310d3h</td><td class="colD">1y309d3h</td><td class="colD">1y308d3h</td><td class="colD">1y307d3h</td><td class="colD">1y306d3h</td><td class="colD">1y305d3h</td><td class="colD">1y304d3h</td><td class="colD">1y303d3h</td><td class="colD">1y302d3h</td><td class="colD">1y301d3h</td><td class="colD">1y300d4h</td><td class="colD">1y299d4h</td><td class="colD">1y298d4h</td><td class="colD">1y297d4h</td><td class="colD">1y296d4h</td><td class="colD">1y295d4h</td><td class="colD">1y294d4h</td><td class="colD">1y293d4h</td><td class="colD">1y292d4h</td><td class="colD">1y291d5h</td><td class="colD">1y290d5h</td><td class="colD">1y289d5h</td><td class="colD">1y288d5h</td><td class="colD">1y287d5h</td><td class="colD">1y286d5h</td><td class="colD">1y285d5h</td><td class="colD">1y284d5h</td><td class="colD">1y283d5h</td><td class="colD">1y282d6h</td><td class="colD">1y281d6h</td><td class="colD">1y280d6h</td><td class="colD">1y279d6h</td><td class="colD">1y278d6h</td><td class="colD">1y277d6h</td><td class="colD">1y276d6h</td><td class="colD">1y275d6h</td><td class="colD">1y274d7h</td><td class="colD">1y273d7h</td><td class="colD">1y272d7h</td><td class="colD">1y271d7h</td><td class="colD">1y270d7h</td><td class="colD">1y269d7h</td><td class="colD">1y268d7h</td><td class="colD">1y267d7h</td><td class="colD">1y266d7h</td><td class="colD">1y265d8h</td><td class="colD">1y264d8h</td><td class="colD">1y263d8h</td><td class="colD">1y262d8h</td><td class="colD">1y261d8h</td><td class="colD">1y260d8h</td><td class="colD">1y259d8h</td><td class="colD">1y258d9h</td><td class="colD">1y257d9h</td><td class="colD">1y256d9h</td><td class="colD">1y255d9h</td><td class="colD">1y254d9h</td><td class="colD">1y253d9h</td><td class="colD">1y252d9h</td><td class="colD">1y251d9h</td><td class="colD">1y250d10h</td><td class="colD">1y249d10h</td><td class="colD">1y248d10h</td><td class="colD">1y247d10h</td><td class="colD">1y246d10h</td><td class="colD">1y245d10h</td><td class="colD">1y244d10h</td><td class="colD">1y243d11h</td><td class="colD">1y242d11h</td><td class="colD">1y241d11h</td><td class="colD">1y240d11h</td><td class="colD">1y239d11h</td><td class="colD">1y238d11h</td><td class="colD">1y237d11h</td><td class="colD">1y236d11h</td><td class="colD">1y235d12h</td><td class="colD">1y234d12h</td><td class="colD">1y233d12h</td><td class="colD">1y232d12h</td><td class="colD">1y231d12h</td><td class="colD">1y230d12h</td><td class="colD">1y229d12h</td><td class="colD">1y228d13h</td><td class="colD">1y227d13h</td><td class="colD">1y226d13h</td><td class="colD">1y225d13h</td><td class="colD">1y224d13h</td><td class="colD">1y223d13h</td><td class="colD">1y222d13h</td><td class="colD">1y221d13h</td><td class="colD">1y220d13h</td><td class="colD">1y219d14h</td><td class="colD">1y218d14h</td><td class="colD">1y217d14h</td><td class="colD">1y216d14h</td><td class="colD">1y215d14h</td><td class="colD">1y214d14h</td><td class="colD">1y213d15h</td><td class="colD">1y212d15h</td><td class="colD">1y211d15h</td><td class="colD">1y210d15h</td><td class="colD">1y209d15h</td><td class="colD">2y97d12h</td><td class="colD">2y96d12h</td><td class="colD">2y95d12h</td><td class="colD">2y94d12h</td><td class="colD">2y93d12h</td><td class="colD">2y92d12h</td><td class="colD">2y91d12h</td><td class="colD">2y90d13h</td><td class="colD">2y89d13h</td><td class="colD">2y88d13h</td><td class="colD">2y87d13h</td><td class="colD">2y86d13h</td><td class="colD">2y85d13h</td><td class="colD">2y84d13h</td><td class="colD">2y83d13h</td><td class="colD">2y82d13h</td><td class="colD">2y81d13h</td><td class="colD">2y80d13h</td><td class="colD">2y79d14h</td><td class="colD">2y78d14h</td><td class="colD">2y77d14h</td><td class="colD">2y76d14h</td><td class="colD">2y75d14h</td><td class="colD">2y74d14h</td><td class="colD">2y73d14h</td><td class="colD">2y72d14h</td><td class="colD">2y71d14h</td><td class="colD">2y70d14h</td><td class="colD">2y69d14h</td><td class="colD">2y68d15h</td><td class="colD">2y67d15h</td><td class="colD">2y66d15h</td><td class="colD">2y65d15h</td><td class="colD">2y64d15h</td><td class="colD">2y63d15h</td><td class="colD">2y62d15h</td><td class="colD">2y61d15h</td><td class="colD">2y60d15h</td><td class="colD">2y59d15h</td><td class="colD">2y58d16h</td><td class="colD">2y57d16h</td><td class="colD">2y56d16h</td><td class="colD">2y55d16h</td><td class="colD">2y54d16h</td><td class="colD">2y53d16h</td><td class="colD">2y52d16h</td><td class="colD">2y51d16h</td><td class="colD">2y50d16h</td><td class="colD">2y49d16h</td><td class="colD">2y48d16h</td><td class="colD">2y47d17h</td><td class="colD">2y46d17h</td><td class="colD">2y45d17h</td><td class="colD">2y44d17h</td><td class="colD">2y43d17h</td><td class="colD">2y42d17h</td><td class="colD">2y41d17h</td><td class="colD">2y40d17h</td><td class="colD">2y39d17h</td><td class="colD">2y38d17h</td><td class="colD">2y37d18h</td><td class="colD">2y36d18h</td><td class="colD">2y35d18h</td></tr><tr class="tr0"><td class="colD">13.20</td><td class="colD">13.22</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.21</td><td class="colD">13.20</td><td class="colD">13.21</td><td class="colD">13.21</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.21</td><td class="colD">13.20</td><td class="colD">13.21</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.21</td><td class="colD">13.20</td><td class="colD">13.21</td><td class="colD">13.20</td><td class="colD">13.21</td><td class="colD">13.21</td><td class="colD">13.21</td><td class="colD">13.21</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.21</td><td class="colD">13.21</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.21</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.21</td><td class="colD">13.20</td><td class="colD">13.19</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.22</td><td class="colD">13.21</td><td class="colD">13.09</td><td class="colD">13.20</td><td class="colD">13.22</td><td class="colD">13.06</td><td class="colD">13.17</td><td class="colD">13.19</td><td class="colD">13.20</td><td class="colD">13.21</td><td class="colD">13.20</td><td class="colD">13.19</td><td class="colD">13.19</td><td class="colD">13.21</td><td class="colD">13.20</td><td class="colD">13.19</td><td class="colD">13.19</td><td class="colD">13.20</td><td class="colD">13.18</td><td class="colD">13.20</td><td class="colD">13.21</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.19</td><td class="colD">13.19</td><td class="colD">13.20</td><td class="colD">13.19</td><td class="colD">13.21</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.21</td><td class="colD">13.22</td><td class="colD">13.20</td><td class="colD">13.05</td><td class="colD">13.05</td><td class="colD">13.20</td><td class="colD">13.09</td><td class="colD">13.05</td><td class="colD">13.02</td><td class="colD">13.01</td><td class="colD">13.04</td><td class="colD">13.03</td><td class="colD">13.06</td><td class="colD">13.11</td><td class="colD">13.17</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.19</td><td class="colD">13.20</td><td class="colD">13.21</td><td class="colD">13.21</td><td class="colD">13.19</td><td class="colD">13.19</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.19</td><td class="colD">13.19</td><td class="colD">13.19</td><td class="colD">13.20</td><td class="colD">13.21</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.21</td><td class="colD">13.22</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.19</td><td class="colD">13.20</td><td class="colD">13.21</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.18</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.22</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.22</td><td class="colD">13.22</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.21</td><td class="colD">13.21</td><td class="colD">13.21</td><td class="colD">13.22</td><td class="colD">13.22</td><td class="colD">13.21</td><td class="colD">13.21</td><td class="colD">13.21</td><td class="colD">13.22</td><td class="colD">13.21</td><td class="colD">13.22</td><td class="colD">13.21</td><td class="colD">13.21</td><td class="colD">13.22</td><td class="colD">13.21</td><td class="colD">13.21</td><td class="colD">13.21</td><td class="colD">13.20</td><td class="colD">13.22</td><td class="colD">13.21</td><td class="colD">13.21</td><td class="colD">13.22</td><td class="colD">13.22</td><td class="colD">13.21</td><td class="colD">13.22</td><td class="colD">13.22</td><td class="colD">13.21</td><td class="colD">13.22</td><td class="colD">13.22</td><td class="colD">13.22</td><td class="colD">13.22</td><td class="colD">13.22</td><td class="colD">13.22</td><td class="colD">13.21</td><td class="colD">13.21</td><td class="colD">13.21</td><td class="colD">13.22</td><td class="colD">13.21</td><td class="colD">13.21</td><td class="colD">13.20</td><td class="colD">13.21</td><td class="colD">13.20</td><td class="colD">13.22</td><td class="colD">13.22</td><td class="colD">13.21</td><td class="colD">13.22</td><td class="colD">13.21</td><td class="colD">13.22</td><td class="colD">13.20</td><td class="colD">13.21</td><td class="colD">13.21</td><td class="colD">13.21</td><td class="colD">13.22</td><td class="colD">13.22</td><td class="colD">13.21</td><td class="colD">13.20</td><td class="colD">13.21</td><td class="colD">13.22</td><td class="colD">13.22</td><td class="colD">13.22</td><td class="colD">13.22</td><td class="colD">13.21</td><td class="colD">13.20</td><td class="colD">13.21</td><td class="colD">13.21</td><td class="colD">13.20</td><td class="colD">13.22</td><td class="colD">13.22</td><td class="colD">13.21</td><td class="colD">13.21</td><td class="colD">13.22</td><td class="colD">13.21</td><td class="colD">13.21</td><td class="colD">13.21</td><td class="colD">13.21</td><td class="colD">13.22</td><td class="colD">13.21</td><td class="colD">13.21</td><td class="colD">13.21</td><td class="colD">13.21</td><td class="colD">13.21</td><td class="colD">13.20</td><td class="colD">13.21</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.20</td><td class="colD">13.21</td><td class="colD">13.21</td><td class="colD">13.20</td><td class="colD">13.21</td><td class="colD">13.21</td><td class="colD">13.20</td><td class="colD">13.21</td><td class="colD">13.22</td><td class="colD">13.22</td><td class="colD">13.21</td></tr><tr class="tr0"><td class="colD">13.98</td><td class="colD">14.09</td><td class="colD">14.15</td><td class="colD">14.16</td><td class="colD">14.13</td><td class="colD">14.24</td><td class="colD">14.18</td><td class="colD">14.23</td><td class="colD">14.16</td><td class="colD">14.34</td><td class="colD">14.42</td><td class="colD">14.34</td><td class="colD">14.23</td><td class="colD">14.18</td><td class="colD">14.17</td><td class="colD">14.19</td><td class="colD">14.16</td><td class="colD">14.15</td><td class="colD">14.39</td><td class="colD">13.44</td><td class="colD">14.16</td><td class="colD">14.34</td><td class="colD">14.34</td><td class="colD">13.70</td><td class="colD">14.22</td><td class="colD">14.19</td><td class="colD">14.05</td><td class="colD">14.07</td><td class="colD">14.20</td><td class="colD">14.12</td><td class="colD">14.16</td><td class="colD">14.14</td><td class="colD">14.20</td><td class="colD">14.35</td><td class="colD">14.20</td><td class="colD">14.28</td><td class="colD">14.27</td><td class="colD">14.32</td><td class="colD">13.65</td><td class="colD">13.61</td><td class="colD">13.48</td><td class="colD">14.37</td><td class="colD">14.30</td><td class="colD">14.30</td><td class="colD">14.38</td><td class="colD">13.71</td><td class="colD">13.73</td><td class="colD">13.66</td><td class="colD">13.62</td><td class="colD">13.51</td><td class="colD">13.63</td><td class="colD">13.38</td><td class="colD">13.45</td><td class="colD">13.41</td><td class="colD">13.44</td><td class="colD">14.39</td><td class="colD">14.38</td><td class="colD">13.70</td><td class="colD">13.45</td><td class="colD">14.35</td><td class="colD">14.27</td><td class="colD">14.29</td><td class="colD">14.27</td><td class="colD">14.30</td><td class="colD">13.43</td><td class="colD">14.45</td><td class="colD">14.35</td><td class="colD">14.30</td><td class="colD">14.32</td><td class="colD">14.35</td><td class="colD">14.34</td><td class="colD">14.32</td><td class="colD">14.34</td><td class="colD">14.33</td><td class="colD">14.28</td><td class="colD">14.26</td><td class="colD">13.68</td><td class="colD">13.68</td><td class="colD">13.65</td><td class="colD">13.54</td><td class="colD">13.44</td><td class="colD">13.63</td><td class="colD">13.65</td><td class="colD">13.57</td><td class="colD">13.48</td><td class="colD">13.25</td><td class="colD">13.41</td><td class="colD">13.48</td><td class="colD">13.53</td><td class="colD">13.58</td><td class="colD">13.54</td><td class="colD">13.59</td><td class="colD">13.42</td><td class="colD">13.47</td><td class="colD">14.28</td><td class="colD">14.31</td><td class="colD">14.29</td><td class="colD">13.64</td><td class="colD">13.43</td><td class="colD">14.38</td><td class="colD">13.73</td><td class="colD">13.75</td><td class="colD">13.86</td><td class="colD">14.32</td><td class="colD">14.34</td><td class="colD">14.30</td><td class="colD">14.24</td><td class="colD">14.32</td><td class="colD">14.29</td><td class="colD">14.29</td><td class="colD">14.32</td><td class="colD">14.28</td><td class="colD">14.23</td><td class="colD">14.22</td><td class="colD">14.32</td><td class="colD">14.27</td><td class="colD">14.30</td><td class="colD">13.66</td><td class="colD">13.45</td><td class="colD">13.61</td><td class="colD">14.34</td><td class="colD">13.84</td><td class="colD">13.44</td><td class="colD">13.66</td><td class="colD">14.19</td><td class="colD">14.34</td><td class="colD">14.38</td><td class="colD">14.30</td><td class="colD">14.38</td><td class="colD">14.38</td><td class="colD">14.31</td><td class="colD">14.26</td><td class="colD">14.28</td><td class="colD">13.38</td><td class="colD">14.21</td><td class="colD">14.27</td><td class="colD">14.16</td><td class="colD">14.16</td><td class="colD">14.18</td><td class="colD">14.21</td><td class="colD">14.16</td><td class="colD">14.23</td><td class="colD">14.27</td><td class="colD">14.27</td><td class="colD">14.23</td><td class="colD">14.23</td><td class="colD">14.23</td><td class="colD">14.24</td><td class="colD">14.16</td><td class="colD">14.13</td><td class="colD">14.14</td><td class="colD">14.06</td><td class="colD">14.07</td><td class="colD">14.23</td><td class="colD">14.09</td><td class="colD">13.99</td><td class="colD">13.98</td><td class="colD">14.01</td><td class="colD">14.11</td><td class="colD">14.10</td><td class="colD">14.16</td><td class="colD">13.48</td><td class="colD">13.64</td><td class="colD">14.05</td><td class="colD">14.04</td><td class="colD">14.14</td><td class="colD">14.13</td><td class="colD">13.96</td><td class="colD">13.76</td><td class="colD">13.76</td><td class="colD">13.87</td><td class="colD">13.90</td><td class="colD">13.80</td><td class="colD">13.76</td><td class="colD">13.80</td><td class="colD">13.89</td><td class="colD">14.24</td><td class="colD">14.09</td><td class="colD">13.86</td><td class="colD">14.02</td><td class="colD">13.61</td><td class="colD">13.93</td><td class="colD">13.95</td><td class="colD">14.03</td><td class="colD">14.13</td><td class="colD">13.66</td><td class="colD">14.20</td><td class="colD">14.02</td><td class="colD">14.13</td><td class="colD">13.56</td><td class="colD">14.15</td><td class="colD">14.09</td><td class="colD">14.13</td><td class="colD">14.17</td><td class="colD">13.46</td><td class="colD">14.14</td><td class="colD">14.14</td><td class="colD">14.12</td><td class="colD">14.19</td><td class="colD">14.09</td><td class="colD">14.18</td><td class="colD">14.12</td><td class="colD">14.16</td><td class="colD">14.17</td><td class="colD">14.16</td><td class="colD">14.12</td><td class="colD">14.15</td><td class="colD">14.16</td><td class="colD">14.03</td><td class="colD">14.09</td><td class="colD">14.19</td><td class="colD">14.05</td><td class="colD">14.09</td><td class="colD">14.01</td><td class="colD">14.22</td><td class="colD">14.22</td><td class="colD">14.17</td><td class="colD">14.25</td><td class="colD">14.08</td><td class="colD">14.16</td><td class="colD">14.12</td><td class="colD">13.46</td><td class="colD">14.19</td><td class="colD">14.08</td><td class="colD">13.48</td><td class="colD">14.23</td><td class="colD">14.16</td><td class="colD">14.11</td><td class="colD">14.22</td><td class="colD">14.16</td><td class="colD">14.16</td><td class="colD">13.45</td><td class="colD">14.10</td><td class="colD">14.16</td><td class="colD">14.12</td><td class="colD">14.16</td><td class="colD">14.19</td><td class="colD">14.04</td><td class="colD">14.04</td><td class="colD">14.05</td><td class="colD">14.11</td><td class="colD">14.00</td><td class="colD">14.02</td><td class="colD">14.05</td><td class="colD">14.19</td><td class="colD">14.17</td><td class="colD">14.18</td><td class="colD">14.30</td><td class="colD">14.13</td><td class="colD">14.02</td><td class="colD">14.13</td><td class="colD">14.17</td><td class="colD">14.10</td><td class="colD">14.20</td><td class="colD">13.90</td></tr><tr class="tr0"><td class="colD">17.4</td><td class="colD">18.2</td><td class="colD">17.4</td><td class="colD">17.1</td><td class="colD">17.0</td><td class="colD">17.5</td><td class="colD">17.8</td><td class="colD">17.9</td><td class="colD">16.8</td><td class="colD">15.7</td><td class="colD">17.5</td><td class="colD">18.4</td><td class="colD">17.7</td><td class="colD">17.3</td><td class="colD">17.0</td><td class="colD">18.4</td><td class="colD">18.0</td><td class="colD">16.7</td><td class="colD">34.9</td><td class="colD">2.6</td><td class="colD">16.7</td><td class="colD">17.6</td><td class="colD">19.9</td><td class="colD">13.8</td><td class="colD">17.2</td><td class="colD">19.1</td><td class="colD">18.4</td><td class="colD">17.0</td><td class="colD">18.3</td><td class="colD">18.5</td><td class="colD">18.1</td><td class="colD">18.4</td><td class="colD">16.7</td><td class="colD">18.8</td><td class="colD">17.1</td><td class="colD">17.8</td><td class="colD">16.7</td><td class="colD">33.7</td><td class="colD">26.5</td><td class="colD">6.2</td><td class="colD">5.5</td><td class="colD">18.8</td><td class="colD">18.8</td><td class="colD">18.6</td><td class="colD">38.0</td><td class="colD">13.4</td><td class="colD">21.6</td><td class="colD">51.2</td><td class="colD">10.9</td><td class="colD">7.4</td><td class="colD">43.2</td><td class="colD">2.8</td><td class="colD">3.3</td><td class="colD">4.8</td><td class="colD">3.9</td><td class="colD">18.9</td><td class="colD">25.5</td><td class="colD">26.3</td><td class="colD">3.5</td><td class="colD">19.3</td><td class="colD">19.9</td><td class="colD">19.3</td><td class="colD">19.4</td><td class="colD">33.8</td><td class="colD">3.0</td><td class="colD">18.8</td><td class="colD">19.1</td><td class="colD">19.3</td><td class="colD">19.4</td><td class="colD">19.3</td><td class="colD">19.4</td><td class="colD">19.5</td><td class="colD">19.5</td><td class="colD">19.8</td><td class="colD">20.3</td><td class="colD">33.7</td><td class="colD">35.6</td><td class="colD">29.7</td><td class="colD">33.1</td><td class="colD">19.1</td><td class="colD">2.0</td><td class="colD">31.5</td><td class="colD">28.9</td><td class="colD">34.0</td><td class="colD">33.4</td><td class="colD">3.2</td><td class="colD">9.0</td><td class="colD">10.0</td><td class="colD">8.0</td><td class="colD">7.8</td><td class="colD">5.6</td><td class="colD">23.6</td><td class="colD">2.9</td><td class="colD">4.6</td><td class="colD">19.3</td><td class="colD">18.4</td><td class="colD">25.6</td><td class="colD">30.2</td><td class="colD">2.7</td><td class="colD">28.5</td><td class="colD">17.0</td><td class="colD">15.8</td><td class="colD">14.3</td><td class="colD">18.5</td><td class="colD">19.3</td><td class="colD">19.3</td><td class="colD">17.8</td><td class="colD">19.8</td><td class="colD">19.2</td><td class="colD">19.5</td><td class="colD">18.7</td><td class="colD">19.3</td><td class="colD">19.6</td><td class="colD">19.7</td><td class="colD">18.8</td><td class="colD">17.8</td><td class="colD">26.6</td><td class="colD">38.5</td><td class="colD">3.7</td><td class="colD">7.7</td><td class="colD">22.8</td><td class="colD">31.5</td><td class="colD">2.5</td><td class="colD">16.5</td><td class="colD">18.5</td><td class="colD">18.4</td><td class="colD">19.0</td><td class="colD">19.8</td><td class="colD">18.2</td><td class="colD">17.6</td><td class="colD">19.5</td><td class="colD">18.4</td><td class="colD">38.1</td><td class="colD">1.2</td><td class="colD">19.5</td><td class="colD">19.3</td><td class="colD">19.4</td><td class="colD">19.6</td><td class="colD">17.8</td><td class="colD">19.2</td><td class="colD">19.7</td><td class="colD">19.2</td><td class="colD">17.9</td><td class="colD">19.2</td><td class="colD">18.8</td><td class="colD">19.3</td><td class="colD">18.9</td><td class="colD">17.3</td><td class="colD">18.9</td><td class="colD">18.4</td><td class="colD">19.2</td><td class="colD">19.3</td><td class="colD">18.1</td><td class="colD">19.6</td><td class="colD">19.7</td><td class="colD">19.6</td><td class="colD">19.4</td><td class="colD">18.9</td><td class="colD">18.5</td><td class="colD">17.4</td><td class="colD">29.6</td><td class="colD">6.6</td><td class="colD">17.2</td><td class="colD">18.3</td><td class="colD">17.5</td><td class="colD">17.8</td><td class="colD">18.7</td><td class="colD">20.1</td><td class="colD">19.9</td><td class="colD">19.2</td><td class="colD">19.0</td><td class="colD">19.8</td><td class="colD">20.1</td><td class="colD">19.5</td><td class="colD">19.8</td><td class="colD">15.9</td><td class="colD">18.6</td><td class="colD">19.9</td><td class="colD">17.9</td><td class="colD">17.1</td><td class="colD">16.8</td><td class="colD">20.6</td><td class="colD">17.7</td><td class="colD">17.5</td><td class="colD">19.3</td><td class="colD">13.0</td><td class="colD">19.2</td><td class="colD">17.1</td><td class="colD">20.2</td><td class="colD">11.8</td><td class="colD">17.6</td><td class="colD">18.7</td><td class="colD">17.7</td><td class="colD">21.1</td><td class="colD">9.4</td><td class="colD">18.9</td><td class="colD">19.6</td><td class="colD">18.1</td><td class="colD">18.5</td><td class="colD">19.2</td><td class="colD">15.6</td><td class="colD">16.2</td><td class="colD">19.3</td><td class="colD">18.0</td><td class="colD">16.6</td><td class="colD">17.7</td><td class="colD">18.5</td><td class="colD">19.5</td><td class="colD">19.2</td><td class="colD">19.0</td><td class="colD">16.1</td><td class="colD">18.7</td><td class="colD">19.1</td><td class="colD">15.9</td><td class="colD">16.0</td><td class="colD">16.7</td><td class="colD">15.2</td><td class="colD">14.8</td><td class="colD">18.7</td><td class="colD">17.2</td><td class="colD">28.5</td><td class="colD">4.9</td><td class="colD">16.4</td><td class="colD">22.6</td><td class="colD">8.7</td><td class="colD">17.3</td><td class="colD">18.7</td><td class="colD">18.9</td><td class="colD">14.1</td><td class="colD">16.1</td><td class="colD">28.5</td><td class="colD">6.0</td><td class="colD">15.8</td><td class="colD">18.3</td><td class="colD">19.9</td><td class="colD">16.8</td><td class="colD">18.8</td><td class="colD">18.9</td><td class="colD">19.2</td><td class="colD">19.3</td><td class="colD">17.4</td><td class="colD">18.8</td><td class="colD">19.1</td><td class="colD">18.7</td><td class="colD">17.2</td><td class="colD">16.1</td><td class="colD">16.8</td><td class="colD">16.7</td><td class="colD">19.2</td><td class="colD">16.9</td><td class="colD">16.8</td><td class="colD">17.2</td><td class="colD">15.8</td><td class="colD">20.4</td><td class="colD">20.0</td></tr><tr class="tr0"><td class="colD">20.8</td><td class="colD">20.6</td><td class="colD">20.4</td><td class="colD">20.3</td><td class="colD">20.5</td><td class="colD">20.1</td><td class="colD">20.5</td><td class="colD">20.5</td><td class="colD">20.3</td><td class="colD">20.3</td><td class="colD">20.1</td><td class="colD">20.3</td><td class="colD">20.4</td><td class="colD">20.5</td><td class="colD">20.2</td><td class="colD">20.2</td><td class="colD">20.3</td><td class="colD">20.4</td><td class="colD">20.3</td><td class="colD">20.4</td><td class="colD">20.4</td><td class="colD">20.3</td><td class="colD">20.4</td><td class="colD">20.7</td><td class="colD">20.5</td><td class="colD">20.5</td><td class="colD">20.4</td><td class="colD">20.6</td><td class="colD">20.7</td><td class="colD">20.4</td><td class="colD">20.4</td><td class="colD">20.4</td><td class="colD">20.5</td><td class="colD">20.2</td><td class="colD">20.3</td><td class="colD">20.6</td><td class="colD">20.3</td><td class="colD">20.1</td><td class="colD">20.7</td><td class="colD">20.7</td><td class="colD">20.3</td><td class="colD">19.9</td><td class="colD">19.9</td><td class="colD">20.0</td><td class="colD">20.1</td><td class="colD">20.6</td><td class="colD">20.3</td><td class="colD">20.6</td><td class="colD">20.7</td><td class="colD">20.7</td><td class="colD">21.1</td><td class="colD">20.7</td><td class="colD">20.3</td><td class="colD">20.4</td><td class="colD">20.3</td><td class="colD">19.9</td><td class="colD">19.9</td><td class="colD">20.3</td><td class="colD">20.5</td><td class="colD">20.0</td><td class="colD">20.1</td><td class="colD">20.0</td><td class="colD">19.9</td><td class="colD">20.3</td><td class="colD">20.0</td><td class="colD">20.3</td><td class="colD">20.0</td><td class="colD">20.0</td><td class="colD">20.0</td><td class="colD">20.0</td><td class="colD">20.1</td><td class="colD">20.0</td><td class="colD">20.3</td><td class="colD">20.2</td><td class="colD">20.2</td><td class="colD">20.3</td><td class="colD">20.7</td><td class="colD">20.3</td><td class="colD">20.6</td><td class="colD">20.5</td><td class="colD">20.4</td><td class="colD">20.5</td><td class="colD">20.5</td><td class="colD">20.5</td><td class="colD">20.7</td><td class="colD">21.1</td><td class="colD">20.9</td><td class="colD">21.3</td><td class="colD">20.4</td><td class="colD">20.3</td><td class="colD">20.7</td><td class="colD">21.1</td><td class="colD">20.8</td><td class="colD">20.5</td><td class="colD">20.2</td><td class="colD">20.2</td><td class="colD">20.1</td><td class="colD">20.7</td><td class="colD">20.1</td><td class="colD">20.2</td><td class="colD">20.7</td><td class="colD">20.5</td><td class="colD">20.4</td><td class="colD">20.0</td><td class="colD">19.9</td><td class="colD">20.1</td><td class="colD">20.4</td><td class="colD">20.2</td><td class="colD">20.2</td><td class="colD">20.2</td><td class="colD">20.2</td><td class="colD">20.1</td><td class="colD">20.4</td><td class="colD">20.6</td><td class="colD">20.3</td><td class="colD">20.2</td><td class="colD">19.9</td><td class="colD">20.7</td><td class="colD">20.6</td><td class="colD">20.6</td><td class="colD">20.2</td><td class="colD">20.9</td><td class="colD">20.6</td><td class="colD">20.8</td><td class="colD">20.2</td><td class="colD">19.9</td><td class="colD">20.2</td><td class="colD">19.8</td><td class="colD">20.1</td><td class="colD">20.2</td><td class="colD">20.4</td><td class="colD">20.1</td><td class="colD">20.3</td><td class="colD">20.4</td><td class="colD">20.1</td><td class="colD">20.2</td><td class="colD">20.3</td><td class="colD">20.3</td><td class="colD">20.4</td><td class="colD">20.3</td><td class="colD">20.3</td><td class="colD">20.6</td><td class="colD">20.7</td><td class="colD">20.2</td><td class="colD">20.4</td><td class="colD">20.3</td><td class="colD">20.4</td><td class="colD">20.5</td><td class="colD">20.7</td><td class="colD">20.3</td><td class="colD">20.4</td><td class="colD">20.5</td><td class="colD">20.5</td><td class="colD">20.4</td><td class="colD">20.5</td><td class="colD">20.5</td><td class="colD">20.6</td><td class="colD">20.6</td><td class="colD">20.6</td><td class="colD">20.8</td><td class="colD">20.9</td><td class="colD">20.8</td><td class="colD">21.0</td><td class="colD">20.7</td><td class="colD">20.7</td><td class="colD">20.6</td><td class="colD">20.8</td><td class="colD">20.9</td><td class="colD">21.1</td><td class="colD">21.0</td><td class="colD">20.9</td><td class="colD">20.9</td><td class="colD">21.0</td><td class="colD">21.0</td><td class="colD">21.1</td><td class="colD">20.7</td><td class="colD">20.7</td><td class="colD">20.6</td><td class="colD">20.8</td><td class="colD">21.0</td><td class="colD">20.8</td><td class="colD">20.7</td><td class="colD">21.0</td><td class="colD">20.7</td><td class="colD">20.9</td><td class="colD">20.8</td><td class="colD">20.7</td><td class="colD">21.0</td><td class="colD">20.7</td><td class="colD">20.8</td><td class="colD">20.9</td><td class="colD">20.7</td><td class="colD">20.8</td><td class="colD">20.8</td><td class="colD">20.8</td><td class="colD">20.5</td><td class="colD">20.8</td><td class="colD">20.7</td><td class="colD">20.9</td><td class="colD">20.8</td><td class="colD">20.8</td><td class="colD">20.9</td><td class="colD">20.7</td><td class="colD">20.8</td><td class="colD">20.8</td><td class="colD">20.9</td><td class="colD">20.6</td><td class="colD">20.7</td><td class="colD">20.9</td><td class="colD">21.0</td><td class="colD">20.8</td><td class="colD">20.8</td><td class="colD">20.8</td><td class="colD">20.8</td><td class="colD">20.7</td><td class="colD">20.6</td><td class="colD">20.7</td><td class="colD">20.5</td><td class="colD">20.8</td><td class="colD">20.6</td><td class="colD">20.8</td><td class="colD">20.5</td><td class="colD">20.5</td><td class="colD">20.6</td><td class="colD">20.6</td><td class="colD">20.5</td><td class="colD">20.5</td><td class="colD">20.7</td><td class="colD">20.7</td><td class="colD">20.7</td><td class="colD">20.6</td><td class="colD">20.5</td><td class="colD">20.7</td><td class="colD">20.6</td><td class="colD">20.6</td><td class="colD">20.6</td><td class="colD">20.7</td><td class="colD">20.7</td><td class="colD">20.8</td><td class="colD">20.7</td><td class="colD">20.7</td><td class="colD">20.7</td><td class="colD">20.7</td><td class="colD">20.6</td><td class="colD">20.5</td><td class="colD">20.5</td><td class="colD">20.5</td><td class="colD">20.3</td><td class="colD">20.6</td><td class="colD">20.7</td><td class="colD">20.3</td><td class="colD">20.5</td><td class="colD">20.9</td><td class="colD">20.7</td><td class="colD">20.8</td></tr><tr class="tr0"><td class="colD">47.25</td><td class="colD">47.38</td><td class="colD">48.69</td><td class="colD">47.66</td><td class="colD">47.78</td><td class="colD">48.00</td><td class="colD">47.63</td><td class="colD">49.22</td><td class="colD">47.72</td><td class="colD">49.06</td><td class="colD">49.06</td><td class="colD">49.88</td><td class="colD">48.84</td><td class="colD">47.69</td><td class="colD">48.53</td><td class="colD">48.13</td><td class="colD">48.06</td><td class="colD">48.22</td><td class="colD">49.75</td><td class="colD">47.28</td><td class="colD">48.44</td><td class="colD">49.22</td><td class="colD">49.25</td><td class="colD">49.38</td><td class="colD">48.03</td><td class="colD">47.53</td><td class="colD">47.78</td><td class="colD">47.97</td><td class="colD">48.31</td><td class="colD">47.75</td><td class="colD">48.31</td><td class="colD">48.31</td><td class="colD">47.94</td><td class="colD">47.75</td><td class="colD">48.16</td><td class="colD">48.56</td><td class="colD">48.25</td><td class="colD">48.16</td><td class="colD">49.44</td><td class="colD">49.22</td><td class="colD">47.53</td><td class="colD">48.81</td><td class="colD">48.06</td><td class="colD">48.19</td><td class="colD">48.28</td><td class="colD">49.09</td><td class="colD">49.22</td><td class="colD">48.50</td><td class="colD">48.91</td><td class="colD">47.53</td><td class="colD">47.41</td><td class="colD">46.50</td><td class="colD">47.28</td><td class="colD">46.78</td><td class="colD">47.00</td><td class="colD">48.28</td><td class="colD">48.41</td><td class="colD">49.13</td><td class="colD">48.38</td><td class="colD">47.59</td><td class="colD">47.81</td><td class="colD">47.94</td><td class="colD">48.22</td><td class="colD">48.63</td><td class="colD">47.19</td><td class="colD">48.91</td><td class="colD">48.41</td><td class="colD">47.59</td><td class="colD">48.06</td><td class="colD">47.81</td><td class="colD">48.41</td><td class="colD">47.47</td><td class="colD">47.94</td><td class="colD">47.44</td><td class="colD">47.41</td><td class="colD">47.44</td><td class="colD">48.03</td><td class="colD">48.31</td><td class="colD">48.41</td><td class="colD">48.09</td><td class="colD">47.72</td><td class="colD">48.00</td><td class="colD">49.22</td><td class="colD">48.28</td><td class="colD">48.09</td><td class="colD">46.72</td><td class="colD">47.47</td><td class="colD">48.47</td><td class="colD">48.13</td><td class="colD">48.31</td><td class="colD">48.63</td><td class="colD">47.09</td><td class="colD">46.88</td><td class="colD">48.06</td><td class="colD">47.84</td><td class="colD">48.06</td><td class="colD">48.03</td><td class="colD">47.63</td><td class="colD">47.34</td><td class="colD">48.13</td><td class="colD">49.22</td><td class="colD">48.81</td><td class="colD">49.16</td><td class="colD">47.50</td><td class="colD">48.53</td><td class="colD">47.66</td><td class="colD">47.84</td><td class="colD">47.91</td><td class="colD">47.97</td><td class="colD">48.69</td><td class="colD">47.94</td><td class="colD">47.78</td><td class="colD">47.19</td><td class="colD">47.72</td><td class="colD">47.84</td><td class="colD">48.38</td><td class="colD">48.31</td><td class="colD">48.03</td><td class="colD">47.88</td><td class="colD">47.94</td><td class="colD">48.38</td><td class="colD">48.09</td><td class="colD">46.66</td><td class="colD">48.41</td><td class="colD">47.88</td><td class="colD">48.38</td><td class="colD">48.22</td><td class="colD">47.91</td><td class="colD">48.19</td><td class="colD">48.94</td><td class="colD">48.00</td><td class="colD">48.25</td><td class="colD">47.69</td><td class="colD">47.66</td><td class="colD">47.59</td><td class="colD">47.25</td><td class="colD">46.94</td><td class="colD">46.84</td><td class="colD">47.34</td><td class="colD">47.38</td><td class="colD">47.13</td><td class="colD">47.38</td><td class="colD">48.22</td><td class="colD">48.19</td><td class="colD">47.53</td><td class="colD">47.91</td><td class="colD">47.47</td><td class="colD">48.28</td><td class="colD">47.63</td><td class="colD">47.44</td><td class="colD">48.03</td><td class="colD">46.88</td><td class="colD">47.53</td><td class="colD">48.34</td><td class="colD">47.19</td><td class="colD">46.75</td><td class="colD">46.84</td><td class="colD">46.84</td><td class="colD">48.03</td><td class="colD">47.56</td><td class="colD">47.56</td><td class="colD">46.69</td><td class="colD">47.31</td><td class="colD">46.88</td><td class="colD">48.28</td><td class="colD">47.72</td><td class="colD">47.22</td><td class="colD">46.59</td><td class="colD">45.94</td><td class="colD">46.69</td><td class="colD">46.31</td><td class="colD">46.69</td><td class="colD">46.22</td><td class="colD">46.03</td><td class="colD">46.31</td><td class="colD">46.72</td><td class="colD">47.91</td><td class="colD">47.88</td><td class="colD">46.63</td><td class="colD">47.75</td><td class="colD">47.47</td><td class="colD">46.97</td><td class="colD">46.69</td><td class="colD">48.00</td><td class="colD">48.25</td><td class="colD">47.78</td><td class="colD">47.66</td><td class="colD">47.78</td><td class="colD">48.09</td><td class="colD">48.00</td><td class="colD">47.72</td><td class="colD">48.44</td><td class="colD">48.38</td><td class="colD">48.28</td><td class="colD">46.66</td><td class="colD">48.50</td><td class="colD">47.38</td><td class="colD">47.41</td><td class="colD">47.72</td><td class="colD">46.97</td><td class="colD">47.22</td><td class="colD">48.25</td><td class="colD">48.63</td><td class="colD">48.00</td><td class="colD">48.03</td><td class="colD">48.84</td><td class="colD">49.09</td><td class="colD">47.34</td><td class="colD">46.94</td><td class="colD">46.94</td><td class="colD">48.00</td><td class="colD">47.47</td><td class="colD">47.25</td><td class="colD">47.34</td><td class="colD">48.81</td><td class="colD">48.66</td><td class="colD">48.63</td><td class="colD">47.16</td><td class="colD">47.69</td><td class="colD">47.78</td><td class="colD">47.66</td><td class="colD">47.59</td><td class="colD">49.06</td><td class="colD">47.88</td><td class="colD">46.78</td><td class="colD">48.63</td><td class="colD">48.28</td><td class="colD">48.34</td><td class="colD">47.41</td><td class="colD">48.25</td><td class="colD">47.72</td><td class="colD">46.88</td><td class="colD">47.97</td><td class="colD">48.00</td><td class="colD">48.72</td><td class="colD">47.31</td><td class="colD">49.06</td><td class="colD">47.72</td><td class="colD">48.09</td><td class="colD">47.50</td><td class="colD">47.06</td><td class="colD">47.69</td><td class="colD">47.50</td><td class="colD">47.34</td><td class="colD">47.63</td><td class="colD">48.78</td><td class="colD">49.16</td><td class="colD">49.41</td><td class="colD">48.81</td><td class="colD">47.03</td><td class="colD">47.75</td><td class="colD">48.41</td><td class="colD">49.03</td><td class="colD">48.41</td><td class="colD">46.78</td></tr><tr class="tr0"><td class="colD">9001</td><td class="colD">9001</td><td class="colD">9001</td><td class="colD">9085</td><td class="colD">9001</td><td class="colD">9001</td><td class="colD">9092</td><td class="colD">9052</td><td class="colD">9001</td><td class="colD">9012</td><td class="colD">2350</td><td class="colD">9061</td><td class="colD">2702</td><td class="colD">9001</td><td class="colD">9001</td><td class="colD">9083</td><td class="colD">9004</td><td class="colD">9003</td><td class="colD">3623</td><td class="colD">0</td><td class="colD">9001</td><td class="colD">9079</td><td class="colD">9012</td><td class="colD">0</td><td class="colD">6734</td><td class="colD">8802</td><td class="colD">9138</td><td class="colD">9001</td><td class="colD">9001</td><td class="colD">9029</td><td class="colD">9074</td><td class="colD">9001</td><td class="colD">9001</td><td class="colD">8636</td><td class="colD">9001</td><td class="colD">9063</td><td class="colD">9025</td><td class="colD">8908</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">9001</td><td class="colD">9139</td><td class="colD">9001</td><td class="colD">7118</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">9013</td><td class="colD">8180</td><td class="colD">0</td><td class="colD">0</td><td class="colD">9034</td><td class="colD">9058</td><td class="colD">9001</td><td class="colD">9001</td><td class="colD">4651</td><td class="colD">0</td><td class="colD">7964</td><td class="colD">6033</td><td class="colD">8696</td><td class="colD">8672</td><td class="colD">8700</td><td class="colD">8630</td><td class="colD">8578</td><td class="colD">8396</td><td class="colD">8037</td><td class="colD">8083</td><td class="colD">2835</td><td class="colD">0</td><td class="colD">1</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">1</td><td class="colD">0</td><td class="colD">0</td><td class="colD">9001</td><td class="colD">8000</td><td class="colD">5911</td><td class="colD">0</td><td class="colD">0</td><td class="colD">2652</td><td class="colD">0</td><td class="colD">2</td><td class="colD">0</td><td class="colD">8161</td><td class="colD">8555</td><td class="colD">8219</td><td class="colD">7075</td><td class="colD">8031</td><td class="colD">7913</td><td class="colD">7008</td><td class="colD">7971</td><td class="colD">8576</td><td class="colD">7898</td><td class="colD">4976</td><td class="colD">9128</td><td class="colD">9204</td><td class="colD">6669</td><td class="colD">1</td><td class="colD">0</td><td class="colD">0</td><td class="colD">3010</td><td class="colD">3</td><td class="colD">0</td><td class="colD">2</td><td class="colD">8177</td><td class="colD">9001</td><td class="colD">8916</td><td class="colD">9001</td><td class="colD">9001</td><td class="colD">8373</td><td class="colD">4751</td><td class="colD">9064</td><td class="colD">3247</td><td class="colD">0</td><td class="colD">9027</td><td class="colD">9021</td><td class="colD">9064</td><td class="colD">9060</td><td class="colD">9101</td><td class="colD">8828</td><td class="colD">9001</td><td class="colD">9001</td><td class="colD">9001</td><td class="colD">9001</td><td class="colD">9097</td><td class="colD">9080</td><td class="colD">9001</td><td class="colD">9001</td><td class="colD">8567</td><td class="colD">9001</td><td class="colD">9001</td><td class="colD">9134</td><td class="colD">9001</td><td class="colD">8301</td><td class="colD">9070</td><td class="colD">9174</td><td class="colD">9001</td><td class="colD">9108</td><td class="colD">9001</td><td class="colD">9001</td><td class="colD">8941</td><td class="colD">0</td><td class="colD">0</td><td class="colD">9001</td><td class="colD">9001</td><td class="colD">9001</td><td class="colD">9001</td><td class="colD">9107</td><td class="colD">9206</td><td class="colD">9001</td><td class="colD">9177</td><td class="colD">9075</td><td class="colD">9159</td><td class="colD">9001</td><td class="colD">9122</td><td class="colD">9001</td><td class="colD">6949</td><td class="colD">9085</td><td class="colD">9001</td><td class="colD">9001</td><td class="colD">15</td><td class="colD">9001</td><td class="colD">9001</td><td class="colD">9001</td><td class="colD">9084</td><td class="colD">0</td><td class="colD">6008</td><td class="colD">9045</td><td class="colD">9001</td><td class="colD">2</td><td class="colD">6690</td><td class="colD">9001</td><td class="colD">9001</td><td class="colD">9001</td><td class="colD">0</td><td class="colD">9001</td><td class="colD">9083</td><td class="colD">9001</td><td class="colD">9042</td><td class="colD">9088</td><td class="colD">9001</td><td class="colD">9001</td><td class="colD">9073</td><td class="colD">9013</td><td class="colD">9019</td><td class="colD">9001</td><td class="colD">9001</td><td class="colD">9001</td><td class="colD">9001</td><td class="colD">9001</td><td class="colD">9001</td><td class="colD">9001</td><td class="colD">9001</td><td class="colD">9001</td><td class="colD">9001</td><td class="colD">9010</td><td class="colD">9001</td><td class="colD">7983</td><td class="colD">6091</td><td class="colD">9067</td><td class="colD">9107</td><td class="colD">0</td><td class="colD">9077</td><td class="colD">9001</td><td class="colD">0</td><td class="colD">4785</td><td class="colD">9001</td><td class="colD">9001</td><td class="colD">9001</td><td class="colD">5036</td><td class="colD">6081</td><td class="colD">0</td><td class="colD">9001</td><td class="colD">9001</td><td class="colD">9001</td><td class="colD">9001</td><td class="colD">9001</td><td class="colD">9028</td><td class="colD">9045</td><td class="colD">9001</td><td class="colD">9001</td><td class="colD">9001</td><td class="colD">9001</td><td class="colD">9001</td><td class="colD">9040</td><td class="colD">9001</td><td class="colD">9074</td><td class="colD">9044</td><td class="colD">9001</td><td class="colD">9055</td><td class="colD">9001</td><td class="colD">9028</td><td class="colD">9001</td><td class="colD">9037</td><td class="colD">9089</td></tr><tr class="tr0"><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td></tr><tr class="tr0"><td class="colD">15824</td><td class="colD">12925</td><td class="colD">11881</td><td class="colD">11500</td><td class="colD">12035</td><td class="colD">9908</td><td class="colD">11760</td><td class="colD">6747</td><td class="colD">8866</td><td class="colD">9481</td><td class="colD">0</td><td class="colD">5413</td><td class="colD">0</td><td class="colD">5649</td><td class="colD">8804</td><td class="colD">8088</td><td class="colD">7815</td><td class="colD">7453</td><td class="colD">0</td><td class="colD">0</td><td class="colD">4675</td><td class="colD">3850</td><td class="colD">3501</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">6974</td><td class="colD">4227</td><td class="colD">5250</td><td class="colD">7650</td><td class="colD">4313</td><td class="colD">4808</td><td class="colD">4728</td><td class="colD">0</td><td class="colD">5068</td><td class="colD">5860</td><td class="colD">6797</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">2770</td><td class="colD">3992</td><td class="colD">3369</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">3138</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">5212</td><td class="colD">0</td><td class="colD">3724</td><td class="colD">4907</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">3775</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">4213</td><td class="colD">6020</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">4259</td><td class="colD">0</td><td class="colD">4910</td><td class="colD">2961</td><td class="colD">0</td><td class="colD">0</td><td class="colD">5866</td><td class="colD">0</td><td class="colD">0</td><td class="colD">4295</td><td class="colD">3623</td><td class="colD">4988</td><td class="colD">4725</td><td class="colD">4530</td><td class="colD">0</td><td class="colD">4738</td><td class="colD">3703</td><td class="colD">3668</td><td class="colD">3926</td><td class="colD">3678</td><td class="colD">3641</td><td class="colD">3605</td><td class="colD">3971</td><td class="colD">0</td><td class="colD">7055</td><td class="colD">4873</td><td class="colD">4927</td><td class="colD">4966</td><td class="colD">0</td><td class="colD">4405</td><td class="colD">6441</td><td class="colD">6103</td><td class="colD">5250</td><td class="colD">4284</td><td class="colD">5348</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">8850</td><td class="colD">4831</td><td class="colD">5726</td><td class="colD">6775</td><td class="colD">5561</td><td class="colD">12231</td><td class="colD">14114</td><td class="colD">12742</td><td class="colD">8237</td><td class="colD">13878</td><td class="colD">16272</td><td class="colD">12870</td><td class="colD">13932</td><td class="colD">0</td><td class="colD">5281</td><td class="colD">15381</td><td class="colD">9491</td><td class="colD">0</td><td class="colD">8594</td><td class="colD">15097</td><td class="colD">11673</td><td class="colD">6856</td><td class="colD">0</td><td class="colD">0</td><td class="colD">10911</td><td class="colD">5656</td><td class="colD">0</td><td class="colD">0</td><td class="colD">5781</td><td class="colD">9158</td><td class="colD">13350</td><td class="colD">0</td><td class="colD">6890</td><td class="colD">18029</td><td class="colD">18753</td><td class="colD">16301</td><td class="colD">18372</td><td class="colD">17115</td><td class="colD">5328</td><td class="colD">10738</td><td class="colD">17528</td><td class="colD">14896</td><td class="colD">8303</td><td class="colD">14621</td><td class="colD">16166</td><td class="colD">18605</td><td class="colD">19756</td><td class="colD">18119</td><td class="colD">6442</td><td class="colD">16240</td><td class="colD">19852</td><td class="colD">6531</td><td class="colD">8930</td><td class="colD">9964</td><td class="colD">0</td><td class="colD">0</td><td class="colD">11476</td><td class="colD">10452</td><td class="colD">0</td><td class="colD">6912</td><td class="colD">5509</td><td class="colD">0</td><td class="colD">0</td><td class="colD">6730</td><td class="colD">13771</td><td class="colD">16741</td><td class="colD">0</td><td class="colD">0</td><td class="colD">0</td><td class="colD">13775</td><td class="colD">4276</td><td class="colD">10240</td><td class="colD">18521</td><td class="colD">10385</td><td class="colD">15359</td><td class="colD">15044</td><td class="colD">15841</td><td class="colD">16425</td><td class="colD">10499</td><td class="colD">15311</td><td class="colD">15802</td><td class="colD">16012</td><td class="colD">15440</td><td class="colD">9461</td><td class="colD">5220</td><td class="colD">7371</td><td class="colD">14184</td><td class="colD">8028</td><td class="colD">6927</td><td class="colD">9312</td><td class="colD">4494</td><td class="colD">12446</td></tr><tr class="tr1"><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting, 
+A27"><b>3</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td><td class="colD"><span title="Alarms: 
+RTS open, 
+Current limiting"><b>2</b></span></td></tr><tr class="tr0"><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD">-</td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td><td class="colD"><span title="Array Faults: 
+Overcurrent Phase 1"><b>1</b></span></td></tr><tr class="tr0"><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td><td class="colD">-</td></tr></tbody>
+</table>
+
+</div>
+</div>
+ 
+<div id="errdiv"></div>
+
+<div id="footid"><div class="FootBar"></div><div id="idFooter"><div id="idFooterContent"><table style="width:100%"><tbody><tr><td width="120">Prostar MPPT</td><td width="110">Version v01.04.19</td><td width="130"></td><td width="120">EMC-1</td><td>Version v01.01.24  Build 0</td></tr><tr><td>Serial #22260257</td><td></td><td></td><td>Serial #19314316</td><td></td></tr></tbody></table></div> </div><br><a href="http://www.morningstarcorp.com/"></a><p style="text-align:center"><a href="http://www.morningstarcorp.com/">© Copyright 2016 Morningstar Corporation</a><br></p></div>
+
+
+
+
+</body></html>
