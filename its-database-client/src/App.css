@@ -1,0 +1,46 @@
+/* Blue Bar at the top */
+.header {
+  display: flex;
+  justify-content: center; /* Center title */
+  align-items: center;
+  background-color: #007bff;
+  padding: 15px;
+  position: relative; /* Allows absolute positioning for logo */
+}
+
+/* Title centered inside the bar */
+.title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+/* Logo positioned to the right inside the bar */
+.logo {
+  position: absolute;
+  right: 20px; /* Distance from the right */
+  height: 50px; /* Adjust size */
+  width: auto;
+}
+
+/* Center content */
+.center-content {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Style for the "Projects" button */
+.projects-button {
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.projects-button:hover {
+  background-color: #0056b3;
+}
