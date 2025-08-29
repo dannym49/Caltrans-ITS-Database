@@ -3,7 +3,7 @@
 }
 
 .table {
-  display: block;
+  display: table;
   overflow: hidden;
   table-layout: fixed;
   border-collapse: collapse;
@@ -21,7 +21,7 @@
   background-color: #ccc;
   color: #222;
   position: 'sticky';
-  max-width: 125%;
+  max-width: 130%;
 }
 
 .table th,
@@ -35,7 +35,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
 
-  
   
 }
 

@@ -85,7 +85,7 @@ function RecentModifications() {
         >
           <HomeIcon sx={{ fontSize: 36 }} />
         </Button>
-        <Typography variant="h4" sx={{ color: "white" }}> Project Modifications
+        <Typography variant="h4" sx={{ color: "white" }}> ITS Site Modifications
         </Typography>
         <Box width="48px" />
       </Box>
@@ -97,7 +97,7 @@ function RecentModifications() {
           <Typography>No modifications found.</Typography>
         ) : (
           Object.entries(modifications).map(([monthYear, mods]) => (
-            <Accordion key={monthYear} defaultCollapsed>
+            <Accordion key={monthYear} defaultcollapsed="true">
               <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                 <Typography variant="h6">{monthYear}</Typography>
               </AccordionSummary>

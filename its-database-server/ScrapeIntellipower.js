@@ -44,7 +44,7 @@ module.exports = async function scrapeIntellipower(browser, ip) {
 
     return data;
   } catch (err) {
-    throw new Error("Failed to scrape UPS page: " + err.message);
+    throw new Error("Failed to scrape UPS page");
   } finally {
     try {
       await page.close();

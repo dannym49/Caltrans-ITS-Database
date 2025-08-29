@@ -1,0 +1,102 @@
+//ITSwh.js
+const mongoose = require('mongoose');
+
+const ITSwhItemSchema = new mongoose.Schema({
+  ITSElement:   { type: String, required: true, trim: true },
+  manufacturer: { type: String, required: true, trim: true },
+  model:        { type: String, required: true, trim: true },
+  location:     { type: String, required: true, trim: true },
+  quantity:     { type: Number, required: true, min: 0, default: 0 },
+}, { timestamps: true });
+
+ITSwhItemSchema.index({ ITSElement: 1 });
+ITSwhItemSchema.index({ manufacturer: 1 });
+ITSwhItemSchema.index({ location: 1 });
+ITSwhItemSchema.index({ model: 1 });
+
+module.exports = mongoose.model('ITSwhItem', ITSwhItemSchema);
+
+
+//server.js
+const ITSwhItem = require('./ITSwh'); 
+const isId = (id) => mongoose.Types.ObjectId.isValid(id);
+
+// CREATE (POST) – you already have this, kept for completeness
+app.post('/api/itswh', async (req, res) => {
+  try {
+    const { ITSElement, manufacturer, model, location, quantity } = req.body;
+
+    if (![ITSElement, manufacturer, model, location].every(Boolean)) {
+      return res.status(400).json({ error: "Missing required fields." });
+    }
+
+    const qty = Number(quantity ?? 0);
+    if (Number.isNaN(qty) || qty < 0) {
+      return res.status(400).json({ error: "Quantity must be a non-negative number." });
+    }
+
+    const doc = await ITSwhItem.create({ ITSElement, manufacturer, model, location, quantity: qty });
+    return res.status(201).json(doc);
+  } catch (err) {
+    console.error("Create ITSwh item error:", err);
+    res.status(500).json({ error: "Failed to create item." });
+  }
+});
+
+// READ ALL (GET)
+app.get('/api/itswh', async (_req, res) => {
+  try {
+    const items = await ITSwhItem.find().sort({ createdAt: -1 });
+    res.json(items);
+  } catch (err) {
+    console.error("Error fetching ITSwh items:", err);
+    res.status(500).json({ error: "Failed to fetch items." });
+  }
+});
+
+
+// UPDATE (PUT by id) – full update
+app.put('/api/itswh/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    if (!isId(id)) return res.status(400).json({ error: "Invalid id." });
+
+    const { ITSElement, manufacturer, model, location, quantity } = req.body;
+    if (![ITSElement, manufacturer, model, location].every(Boolean)) {
+      return res.status(400).json({ error: "Missing required fields." });
+    }
+    const qty = Number(quantity ?? 0);
+    if (Number.isNaN(qty) || qty < 0) {
+      return res.status(400).json({ error: "Quantity must be a non-negative number." });
+    }
+
+    const updated = await ITSwhItem.findByIdAndUpdate(
+      id,
+      { ITSElement, manufacturer, model, location, quantity: qty },
+      { new: true, runValidators: true }
+    );
+
+    if (!updated) return res.status(404).json({ error: "Not found." });
+    res.json(updated);
+  } catch (err) {
+    console.error("Update ITSwh item error:", err);
+    res.status(500).json({ error: "Failed to update item." });
+  }
+});
+
+
+// DELETE by id
+app.delete('/api/itswh/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    if (!isId(id)) return res.status(400).json({ error: "Invalid id." });
+
+    const deleted = await ITSwhItem.findByIdAndDelete(id);
+    if (!deleted) return res.status(404).json({ error: "Not found." });
+
+    res.json({ ok: true, id });
+  } catch (err) {
+    console.error("Delete ITSwh item error:", err);
+    res.status(500).json({ error: "Failed to delete item." });
+  }
+});

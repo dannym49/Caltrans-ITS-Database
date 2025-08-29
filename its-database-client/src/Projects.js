@@ -328,7 +328,7 @@ axios.get(endpoint)
                     Back to Route Selection
                   </Button>
                 </Box>
-        {/* Project Cards */}
+        {/* ITS Site Cards */}
         <Grid container spacing={3}>
           {filteredProjects.map((project) => (
             <Grid item xs={12} sm={6} md={4} key={project._id}>

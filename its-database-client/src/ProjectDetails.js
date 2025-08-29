@@ -50,7 +50,8 @@ const categoryMap = {
   "UPS": ["Location", "Local IP", "Remote IP", "Remote Port", "Make", "Model"],
   "RPS": [ "Location", "Local IP", "Remote IP", "Remote Port", "Make", "Model", "Outlet 1", "Outlet 2", "Outlet 3", "Outlet 4"],
   "2nd UPS": ["Location", "Local IP", "Remote IP", "Remote Port", "Make", "Model"],
-  "2nd RPS": ["Location", "Local IP", "Remote IP", "Remote Port", "Make", "Model", "Outlet 1", "Outlet 2", "Outlet 3", "Outlet 4"]
+  "2nd RPS": ["Location", "Local IP", "Remote IP", "Remote Port", "Make", "Model", "Outlet 1", "Outlet 2", "Outlet 3", "Outlet 4"],
+   "CMS": ["Device Name", "Local Port", "Remote Port"]
 };
 
 // Define subcategories in order
@@ -65,7 +66,8 @@ const subCategoryRow = [
   "Location", "Local IP", "Remote IP", "Remote Port", "Make", "Model",
   "Location", "Local IP", "Remote IP", "Remote Port", "Make", "Model", "Outlet 1", "Outlet 2", "Outlet 3", "Outlet 4",
   "Location", "Local IP", "Remote IP", "Remote Port", "Make", "Model",
-  "Location", "Local IP", "Remote IP", "Remote Port", "Make", "Model", "Outlet 1", "Outlet 2", "Outlet 3", "Outlet 4"
+  "Location", "Local IP", "Remote IP", "Remote Port", "Make", "Model", "Outlet 1", "Outlet 2", "Outlet 3", "Outlet 4",
+  "Device Name", "Local Port", "Remote Port"
 ];
 
 const categoryIndices = {
@@ -73,7 +75,7 @@ const categoryIndices = {
   "Service Location": [9,10],
   "Plans": [11,12,13,14,15,16,17,18,19],
   "Communication": [21,22,23,24,25,26,27,28,29,30,31],
-  "CMS": [33,34,35,36, 37],
+  "CMS": [33,34,35,36, 37, 84, 85, 86],
   "CCTV": [39,40,41,42,43, 44],
   "MVDS": [46,47,48, 49, 50, 51],
   "UPS": [53, 54, 55, 56, 57],
@@ -117,8 +119,8 @@ function ProjectDetails() {
   const [upsLiveData, setUpsLiveData] = useState(null);
   const [upsLiveLoading, setUpsLiveLoading] = useState(false);
   const [upsLiveError, setUpsLiveError] = useState(null);
-  const [isEditing, setIsEditing] = useState(false); // <-- Editing mode
-  const [editedData, setEditedData] = useState([]);  // <-- Editable copy of project.data
+  const [isEditing, setIsEditing] = useState(false); 
+  const [editedData, setEditedData] = useState([]);  
   const [upsDeviceType, setUpsDeviceType] = useState(() => {
   const deviceType = project?.data?.[9]?.trim().toLowerCase();
     return deviceType === "solar" ? "Solar Charge Controller" : "UPS";
@@ -176,7 +178,7 @@ const handleFieldChange = (index, value) => {
   }
 
   try {
-    // Save any pending custom makes BEFORE updating the project
+    // Save any pending custom makes BEFORE updating the site
     for (const [deviceType, newMake] of Object.entries(pendingCustomMakes)) {
       const existing = makesByDeviceType[deviceType] || [];
       if (newMake && !existing.includes(newMake)) {
@@ -219,14 +221,12 @@ const handleFieldChange = (index, value) => {
     setEditedData(finalData);
     setIsEditing(false);
     setLastEditedRemoteIpIndex(null);
-    alert('Project updated successfully.');
+    alert('ITS site updated successfully.');
   } catch (error) {
-    console.error('Error updating project:', error);
-    alert('Failed to update project.');
+    console.error('Error updating ITS site:', error);
+    alert('Failed to update ITS site.');
   }
 };
-
-
 
 const deviceOptions = [
   "Modem",
@@ -265,7 +265,7 @@ useEffect(() => {
       const idsResponse = await axios.get('http://10.44.2.198:5000/api/project-ids');
       setProjectIds(idsResponse.data);
     } catch (err) {
-      console.error("Error fetching project IDs:", err);
+      console.error("Error fetching ITS Site IDs:", err);
     }
   }
 
@@ -395,7 +395,7 @@ useEffect(() => {
     subCategoryIndexTracker[subCategory].push(index);
   });
 
-  //  Organize project data into categories
+  //  Organize site data into categories
   const categorizedData = {};
   Object.entries(categoryMap).forEach(([category, subcategories]) => {
     categorizedData[category] = subcategories.map((subCategory) => {
@@ -1675,14 +1675,25 @@ if (project?.log?.length > 0) {
                                 <>  
                                   {isEditing ? (
                                     <>
-                                    
+                                    <Typography variant="body2"><strong>Device Name:</strong></Typography>
+                                      <TextField
+                                        value={editedData[84] || ''} onChange={(e) => handleFieldChange(84, e.target.value)} fullWidth size="small" margin="dense"
+                                      />
                                     <Typography variant="body2"><strong>Local IP:</strong></Typography>
                                       <TextField
                                         value={editedData[34] || ''} onChange={(e) => handleFieldChange(34, e.target.value)} fullWidth size="small" margin="dense"
                                       />
+                                         <Typography variant="body2"><strong>Local Port:</strong></Typography>
+                                      <TextField
+                                        value={editedData[85] || ''} onChange={(e) => handleFieldChange(85, e.target.value)} fullWidth size="small" margin="dense"
+                                      />
                                      <Typography variant="body2"><strong>Remote IP:</strong></Typography>
                                       <TextField
                                         value={editedData[35] || ''} onChange={(e) => handleFieldChange( 35, e.target.value)} fullWidth size="small" margin="dense"
+                                      />
+                                       <Typography variant="body2"><strong>Remote Port:</strong></Typography>
+                                      <TextField
+                                        value={editedData[86] || ''} onChange={(e) => handleFieldChange(86, e.target.value)} fullWidth size="small" margin="dense"
                                       />
                                       <Typography variant="body2"><strong>TMS ID:</strong></Typography>
                                       <TextField
@@ -1753,9 +1764,9 @@ if (project?.log?.length > 0) {
                                     </>
                                   ) : (
                                     <>
-                                      <Typography variant="body2"><strong>Device Name:</strong> 2070 Controller-CMS Signview</Typography>
+                                      <Typography variant="body2"><strong>Device Name:</strong> {project.data[84]}</Typography>
                                       <Typography variant="body2"><strong>Local IP:</strong>{project.data[34]}</Typography>
-                                      <Typography variant="body2"><strong>Local Port #:</strong> 10001</Typography>
+                                      <Typography variant="body2"><strong>Local Port #:</strong> {project.data[85]}</Typography>
                                       <Typography variant="body2">
                                         <strong>Remote IP:</strong>{" "}
                                         {project.data[35] ? (
@@ -1781,7 +1792,7 @@ if (project?.log?.length > 0) {
                                           "N/A"
                                         )}
                                       </Typography>
-                                      <Typography variant="body2"> <strong>Remote Port #:</strong>{" "} {String(project.data[33]).startsWith("7") ? "8443" : "10001"}</Typography>
+                                      <Typography variant="body2"> <strong>Remote Port #:</strong>{project.data[86]}</Typography>
                                       <Typography variant="body2"><strong>TMS ID: </strong> {project.data[36]}</Typography>
                                       <Typography variant="body2"><strong>Make: </strong> {project.data[37]}</Typography>
                                       <Typography variant="body2"><strong>Model: </strong> {project.data[33]}</Typography>

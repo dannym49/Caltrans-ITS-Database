@@ -123,7 +123,13 @@ function SolarDailyMetrics() {
                   .filter(data => data?.lastUpdated)
                   .map(data => new Date(data.lastUpdated))
                   .sort((a, b) => b - a)[0] // most recent
-              ).toLocaleString()
+              ).toLocaleString([], {
+                year: 'numeric',
+                month: 'numeric',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+              })
             }
           </Typography>
         )}

@@ -37,13 +37,14 @@ function AddProject() {
     "2nd RPS": false
   });
   const [modemRemoteIP, setModemRemoteIP] = useState('');
-
   const [manualRemoteIPs, setManualRemoteIPs] = useState({});
+
+
   const [makesByDeviceType, setMakesByDeviceType] = useState({});
   const [modelsByDeviceType, setModelsByDeviceType] = useState({});
 
 
-
+// code to fetch data from backend
   useEffect(() => {
       fetch('http://10.44.2.198:5000/api/makes')
         .then(res => res.json())
@@ -57,6 +58,10 @@ function AddProject() {
           .then(setModelsByDeviceType)
           .catch(err => console.error("Failed to load makes:", err));
       }, []);
+
+
+
+
 
   const toggleSection = (section) => {
     setExpandedSections(prev => {
@@ -238,7 +243,7 @@ function AddProject() {
         { section: "2nd RPS", type: "models", deviceType: "RPS", value: form["2nd RPS"]["Custom Model"] },
         { section: "2nd RPS", type: "makes", deviceType: "RPS", value: form["2nd RPS"]["Custom Make"] },
       ];
-
+//code to send data to backend for custom entries
       for (const entry of customEntries) {
         if (entry.value?.trim()) {
           const endpoint = entry.type === "models" ? "/api/models" : "/api/makes";
@@ -263,7 +268,7 @@ function AddProject() {
         ...cleanCustom("2nd UPS/Solar Charge Controller"),
         ...cleanCustom("2nd RPS")
       ];
-
+//code to send data to backend for existing entries
       const response = await axios.post('http://10.44.2.198:5000/api/projects', {
         county: form.county,
         data: flattenedData
@@ -437,7 +442,7 @@ function AddProject() {
                             </FormControl>
                           ) : section === "Communication" && field === "Make" ? (
                             <>
-                              <FormControl fullWidth>
+                              {/* <FormControl fullWidth>
                                 <InputLabel>Make</InputLabel>
                                 <Select
                                   value={(makesByDeviceType["COMMUNICATION"] || []).includes(value) ? value : "Other"}
@@ -471,9 +476,9 @@ function AddProject() {
                                   ))}
                                   <MenuItem value="Other">Other</MenuItem>
                                 </Select>
-                              </FormControl>
+                              </FormControl> */}
 
-                              {!((makesByDeviceType["COMMUNICATION"] || []).includes(value)) && (
+                              {/* {!((makesByDeviceType["COMMUNICATION"] || []).includes(value)) && (
                                 <TextField
                                   fullWidth
                                   label="Enter Custom Make"
@@ -490,64 +495,46 @@ function AddProject() {
                                   }
                                   sx={{ mt: 2 }}
                                 />
-                              )}
+                              )} */}
+                              <Autocomplete
+                                freeSolo
+                                options={makesByDeviceType["COMMUNICATION"] || []}
+                                value={value || ""}
+                                onInputChange={(e, newInput) => {
+                                  setForm(prev => ({
+                                    ...prev,
+                                    [section]: {
+                                      ...prev[section],
+                                      [field]: newInput,
+                                      ["Custom Make"]: newInput
+                                    }
+                                  }));
+                                }}
+                                renderInput={(params) => (
+                                  <TextField {...params} label="Make" fullWidth />
+                                )}
+                              />
                             </>
                           ) : section === "Communication" && field === "Model" ? (
                             <>
-                              <FormControl fullWidth>
-                                <InputLabel>Model</InputLabel>
-                                <Select
-                                  value={(modelsByDeviceType["COMMUNICATION"] || []).includes(value) ? value : "Other"}
-                                  label="Model"
-                                  onChange={(e) => {
-                                    const selected = e.target.value;
-                                    if (selected === "Other") {
-                                      setForm(prev => ({
-                                        ...prev,
-                                        [section]: {
-                                          ...prev[section],
-                                          [field]: "",
-                                          ["Custom Model"]: ""
-                                        }
-                                      }));
-                                    } else {
-                                      setForm(prev => ({
-                                        ...prev,
-                                        [section]: {
-                                          ...prev[section],
-                                          [field]: selected,
-                                          ["Custom Model"]: ""
-                                        }
-                                      }));
+                              <Autocomplete
+                                freeSolo
+                                options={modelsByDeviceType["COMMUNICATION"] || []}
+                                value={value || ""}
+                                onInputChange={(e, newInput) => {
+                                  setForm(prev => ({
+                                    ...prev,
+                                    [section]: {
+                                      ...prev[section],
+                                      [field]: newInput,
+                                      ["Custom Model"]: newInput
                                     }
-                                  }}
-                                >
-                                  <MenuItem value=""><em>Select Model</em></MenuItem>
-                                  {(modelsByDeviceType["COMMUNICATION"] || []).map(model => (
-                                    <MenuItem key={model} value={model}>{model}</MenuItem>
-                                  ))}
-                                  <MenuItem value="Other">Other</MenuItem>
-                                </Select>
-                              </FormControl>
-
-                              {!((modelsByDeviceType["COMMUNICATION"] || []).includes(value)) && (
-                                <TextField
-                                  fullWidth
-                                  label="Enter Custom Model"
-                                  value={form[section]["Custom Model"] || ""}
-                                  onChange={(e) =>
-                                    setForm(prev => ({
-                                      ...prev,
-                                      [section]: {
-                                        ...prev[section],
-                                        [field]: e.target.value,
-                                        ["Custom Model"]: e.target.value
-                                      }
-                                    }))
-                                  }
-                                  sx={{ mt: 2 }}
-                                />
-                              )}
+                                  }));
+                                }}
+                                renderInput={(params) => (
+                                  <TextField {...params} label="Model" fullWidth />
+                                )}
+                              />
                             </>
                           ) : (
                             <TextField
@@ -661,22 +648,22 @@ function AddProject() {
                                 
                                   <>
                                     <Autocomplete
-                                    freeSolo
-                                    options={modelsByDeviceType["CCTV"] || []}
-                                    value={value || ""}
-                                    onInputChange={(e, newInput) => {
-                                      setForm(prev => ({
-                                        ...prev,
-                                        [section]: {
-                                          ...prev[section],
-                                          [field]: newInput,
-                                          ["Custom Model"]: newInput
-                                        }
-                                      }));
-                                    }}
-                                    renderInput={(params) => (
-                                      <TextField {...params} label="Model" fullWidth />
-                                    )}
+                                      freeSolo
+                                      options={modelsByDeviceType["CCTV"] || []}
+                                      value={value || ""}
+                                      onInputChange={(e, newInput) => {
+                                        setForm(prev => ({
+                                          ...prev,
+                                          [section]: {
+                                            ...prev[section],
+                                            [field]: newInput,
+                                            ["Custom Model"]: newInput
+                                          }
+                                        }));
+                                      }}
+                                      renderInput={(params) => (
+                                        <TextField {...params} label="Model" fullWidth />
+                                      )}
                                   />
 
                                 </>

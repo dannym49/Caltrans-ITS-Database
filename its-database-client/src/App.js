@@ -103,6 +103,21 @@ function App() {
               ITS Warehouse
             </Button>
           </Link>
+          <a
+            href="http://10.44.2.198:3001"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ textDecoration: "none", width: "100%" }}
+          >
+            <Button
+              variant="contained"
+              color="primary"
+              fullWidth
+              sx={{ fontSize: "18px", fontWeight: "bold", padding: "12px", borderRadius: "10px" }}
+            >
+              BOSCH Camera Data Collection Interface
+            </Button>
+          </a>
           <Link to="/upload" style={{ textDecoration: "none", width: "100%" }}>
             <Button
               variant="contained"

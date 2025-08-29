@@ -39,6 +39,8 @@ const DEFAULT_MODELS = {
 
 const ModelList = require('./modelList');
 
+const ITSwh = require('./ITSwh'); //imported ITSwh.js in backend (folder)
+
 const os = require('os');
 const { startBackgroundScraping, getCachedUPS, getCachedSolar, getCachedSolarDaily } = require('./scrapeManager');
 
@@ -104,6 +106,33 @@ setInterval(() => {
   }
 }, 120000); 
 
+setInterval(() => {
+  const tempDir = os.tmpdir();
+  const entries = fs.readdirSync(tempDir);
+
+  for (const entry of entries) {
+    const fullPath = path.join(tempDir, entry);
+
+    try {
+      const stat = fs.statSync(fullPath);
+
+      
+      if (stat.isDirectory() && entry.startsWith('msedge_url')) {
+        fs.rmSync(fullPath, { recursive: true, force: true });
+        
+      }
+
+     
+      if (stat.isFile() && entry.endsWith('.tmp')) {
+        fs.unlinkSync(fullPath);
+        
+      }
+    } catch (err) {
+      
+    }
+  }
+}, 120000); 
+
 
 
 
@@ -128,6 +157,7 @@ const ProjectSchema = new mongoose.Schema({
 }, { strict: false });
 
 const Project = mongoose.model('Project', ProjectSchema);
+
 
 
 app.get('/api/ups-latest', (req, res) => res.json(getCachedUPS()));
@@ -388,13 +418,13 @@ app.get('/api/project-ids', (req, res) => {
       const projects = await Project.find({}, '_id').sort({ _id: 1 });
       return projects.map(p => p._id.toString());
     },
-    'Fetch Project IDs',
+    'Fetch ITS Site IDs',
     true 
   )
     .then(ids => res.json(ids))
     .catch(error => {
-      console.error('Error fetching project IDs:', error);
-      res.status(500).json({ error: 'Failed to fetch project IDs.' });
+      console.error('Error fetching ITS Site IDs:', error);
+      res.status(500).json({ error: 'Failed to fetch ITS Site IDs.' });
     });
 });
 
@@ -404,7 +434,7 @@ app.get('/api/project/:id/log', (req, res) => {
     async () => {
       const project = await Project.findById(req.params.id);
       if (!project) {
-        throw { status: 404, message: 'Project not found' };
+        throw { status: 404, message: 'ITS Site not found' };
       }
       return project.log || [];
     },
@@ -431,7 +461,7 @@ app.put("/api/project/:id", (req, res) => {
       const editedBy = req.body.editedBy || "Unknown";
 
       const project = await Project.findById(id);
-      if (!project) return res.status(404).json({ error: "Project not found" });
+      if (!project) return res.status(404).json({ error: "ITS Site not found" });
 
       const oldData = project.data || [];
       const changes = [];
@@ -449,6 +479,7 @@ app.put("/api/project/:id", (req, res) => {
         ["RPS", ["Location", "Local IP", "Remote IP", "Remote Port #", "Make", "Model", "Outlet 1", "Outlet 2", "Outlet 3", "Outlet 4"]],
         ["2nd UPS/ Solar Charge Controller", ["Location", "Local IP", "Remote IP", "Remote Port #","Make", "Model"]],
         ["2nd RPS", ["Location", "Local IP", "Remote IP", "Remote Port #", "Make", "Model", "Outlet 1", "Outlet 2", "Outlet 3", "Outlet 4"]],
+        ["CMS", ["Device", "Local Port", "Remote Port"]],
       ];
 
       const indexMap = {};
@@ -493,15 +524,15 @@ app.put("/api/project/:id", (req, res) => {
       }
 
       await project.save();
-      return { message: "Project updated successfully", project };
+      return { message: "ITS Site updated successfully", project };
     },
-    `Update Project (${req.params.id})`,
+    `Update ITS Site (${req.params.id})`,
     true // High priority
   )
     .then(result => res.json(result))
     .catch(error => {
       console.error("Update Failed:", error);
-      res.status(500).json({ error: "Failed to update project." });
+      res.status(500).json({ error: "Failed to update ITS Site." });
     });
 });
 
@@ -531,7 +562,7 @@ app.get('/api/latest-modification', (req, res) => {
 
       return latestEntry;
     },
-    "Latest Project Modification",
+    "Latest ITS Site Modification",
     true 
   )
     .then(result => res.json(result))
@@ -596,7 +627,7 @@ app.get('/api/recent', (req, res) => {
 app.get('/api/project/:id/county', async (req, res) => {
   try {
     const project = await Project.findById(req.params.id).select('county');
-    if (!project) return res.status(404).json({ error: "Project not found" });
+    if (!project) return res.status(404).json({ error: "ITS Site not found" });
     res.json({ county: project.county });
   } catch (err) {
     console.error("Error fetching county:", err);
@@ -611,8 +642,8 @@ app.get('/api/projects', async (req, res) => {
     const projects = await Project.find({});
     res.json(projects);
   } catch (error) {
-    console.error("Error fetching all projects:", error);
-    res.status(500).json({ error: "Failed to fetch all projects." });
+    console.error("Error fetching all ITS Sites:", error);
+    res.status(500).json({ error: "Failed to fetch all ITS Sites." });
   }
 });
 
@@ -628,7 +659,6 @@ app.get('/api/makes', async (req, res) => {
         type: 'deviceMakes', 
         makesByDeviceType: DEFAULT_MAKES 
       });
-      console.log("Initialized make list with defaults.");
     }
 
     res.json(doc.makesByDeviceType || {});
@@ -844,7 +874,393 @@ app.put('/api/makes', async (req, res) => {
   }
 });
 
+//API to Fetch ITSwh
+app.get('/api/itswh', async (_req, res) => {
+  try {
+    const items = await ITSwhItem.find().sort({ createdAt: -1 });
+    res.json(items);
+  } catch (err) {
+    console.error('Error fetching ITSwh items:', err);
+    res.status(500).json({ error: 'Failed to fetch items.' });
+  }
+});
 
+const ITSwhItem = require('./ITSwh');
+const isId = (id) => mongoose.Types.ObjectId.isValid(id);
+
+// CREATE POST
+app.post('/api/itswh', async (req, res) => {
+  try {
+    const { ITSElement, manufacturer, model, location, quantity } = req.body;
+    if (![ITSElement, manufacturer, model, location].every(Boolean)) {
+      return res.status(400).json({ error: 'Missing required fields.' });
+    }
+    const qty = Number(quantity ?? 0);
+    if (Number.isNaN(qty) || qty < 0) {
+      return res.status(400).json({ error: 'Quantity must be a non-negative number.' });
+    }
+    const doc = await ITSwhItem.create({ ITSElement, manufacturer, model, location, quantity: qty });
+    res.status(201).json(doc);
+  } catch (err) {
+    console.error('Create ITSwh item error:', err);
+    res.status(500).json({ error: 'Failed to create item.' });
+  }
+});
+
+// UPDATE PUT by id
+app.put('/api/itswh/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    if (!isId(id)) return res.status(400).json({ error: 'Invalid id.' });
+    const { ITSElement, manufacturer, model, location, quantity } = req.body;
+    if (![ITSElement, manufacturer, model, location].every(Boolean)) {
+      return res.status(400).json({ error: 'Missing required fields.' });
+    }
+    const qty = Number(quantity ?? 0);
+    if (Number.isNaN(qty) || qty < 0) {
+      return res.status(400).json({ error: 'Quantity must be a non-negative number.' });
+    }
+    const updated = await ITSwhItem.findByIdAndUpdate(
+      id,
+      { ITSElement, manufacturer, model, location, quantity: qty },
+      { new: true, runValidators: true }
+    );
+    if (!updated) return res.status(404).json({ error: 'Not found.' });
+    res.json(updated);
+  } catch (err) {
+    console.error('Update ITSwh item error:', err);
+    res.status(500).json({ error: 'Failed to update item.' });
+  }
+});
+
+// DELETE by id
+app.delete('/api/itswh/:id', async (req, res) => {
+  console.log("DELETE /api/itswh/:id hit"); //debugging purposes
+  try {
+    const { id } = req.params;
+    if (!isId(id)) return res.status(400).json({ error: 'Invalid id.' });
+    const deleted = await ITSwhItem.findByIdAndDelete(id);
+    if (!deleted) return res.status(404).json({ error: 'Not found.' });
+    res.json({ ok: true, id });
+  } catch (err) {
+    console.error('Delete ITSwh item error:', err);
+    res.status(500).json({ error: 'Failed to delete item.' });
+  }
+});
+
+//API to add a new ITSwh
+/*app.post('/api/ITSwh', async (req, res) => {
+  //Add new ITS Element
+  const { ITSElementNew, newITSElementNew } = req.body;
+  if (!ITSElementNew || !newITSElementNew) {
+    return res.status(400).json({ error: "Missing ITSElementNew or newITSElementNew." });
+  }
+
+  try {
+    let doc = await ITSwh.findOne({ type: 'ITSwh' });
+    if (!doc) {
+      doc = await ITSwh.create({ type: 'ITSwh', ITSElement: {} });
+    }
+
+    const currentList = doc.ITSElement.get(ITSElementNew) || [];
+    if (!currentList.includes(newITSElementNew)) {
+      currentList.push(newITSElementNew);
+      doc.ITSElement.set(ITSElementNew, currentList);
+      await doc.save();
+    }
+
+    res.json({ ITSElement: doc.ITSElement });
+  } catch (err) {
+    console.error("Error saving ITS Element:", err);
+    res.status(500).json({ error: "Failed to save ITS Element." });
+  }
+
+//Add new Manufacturer
+ const { manufacturerNew, newManufacturerNew} = req.body;
+  if (!manufacturerNew || !newITSElementNew) {
+    return res.status(400).json({ error: "Missing manufacturerNew or newITSElementNew." });
+  }
+
+  try {
+    let doc = await ITSwh.findOne({ type: 'ITSwh' });
+    if (!doc) {
+      doc = await ITSwh.create({ type: 'ITSwh', manufacturer: {} });
+    }
+
+    const currentList = doc.manufacturer.get(manufacturerNew) || [];
+    if (!currentList.includes(newManufacturerNew)) {
+      currentList.push(newManufacturerNew);
+      doc.manufacturer.set(manufacturerNew, currentList);
+      await doc.save();
+    }
+
+    res.json({ manufacturer: doc.manufacturer });
+  } catch (err) {
+    console.error("Error saving manufacturer:", err);
+    res.status(500).json({ error: "Failed to save manufacturer." });
+  }
+
+//Add new Location
+ const {LocationNew, newLocationNew } = req.body;
+  if (!LocationNew || !newLocationNew) {
+    return res.status(400).json({ error: "Missing LocationNew or newLocationNew." });
+  }
+
+  try {
+    let doc = await ITSwh.findOne({ type: 'ITSwh' });
+    if (!doc) {
+      doc = await ITSwh.create({ type: 'ITSwh', ITSElement: {} });
+    }
+
+    const currentList = doc.location.get(LocationNew) || [];
+    if (!currentList.includes(newLocationNew)) {
+      currentList.push(newLocationNew);
+      doc.makesByDeviceType.set(LocationNew, currentList);
+      await doc.save();
+    }
+
+    res.json({ location: doc.location });
+  } catch (err) {
+    console.error("Error saving location:", err);
+    res.status(500).json({ error: "Failed to save location." });
+  }
+
+//Add new Quantity
+ const { QuantityNew, newQuantityNew } = req.body;
+  if (!QuantityNew || !newITSElementNew) {
+    return res.status(400).json({ error: "Missing QuantityNew or newITSElementNew." });
+  }
+
+  try {
+    let doc = await ITSwh.findOne({ type: 'ITSwh' });
+    if (!doc) {
+      doc = await ITSwh.create({ type: 'ITSwh', ITSElement: {} });
+    }
+
+    const currentList = doc.quantity.get(QuantityNew) || [];
+    if (!currentList.includes(newQuantityNew)) {
+      currentList.push(newQuantityNew);
+      doc.quantity.set(QuantityNew, currentList);
+      await doc.save();
+    }
+
+    res.json({ quantity: doc.quantity });
+  } catch (err) {
+    console.error("Error saving quantity:", err);
+    res.status(500).json({ error: "Failed to save quantity." });
+  }
+}); */
+
+//Deletes ITS Element, Manufacturer, Location, and Quantity from List.
+/*app.delete('/api/makes', async (req, res) => {
+  //Deletes ITS Element
+  const { ITSElmDelete, ITSElmToDelete } = req.body;
+
+  if (!ITSElmDelete || !ITSElmToDelete) {
+    return res.status(400).json({ error: "Missing ITSElmDelete or ITSElmToDelete." });
+  }
+
+  try {
+    const doc = await ITSwh.findOne({ type: 'ITSwh' });
+    if (!doc) return res.status(404).json({ error: "ITSwh not found." });
+
+    const currentList = doc.ITSElement.get(ITSElmDelete) || [];
+    const updatedList = currentList.filter(m => m !== ITSElmToDelete);
+
+    doc.ITSElement.set(ITSElmDelete, updatedList);
+    await doc.save();
+
+    res.json({ message: "ITS Element deleted", ITSElement: doc.ITSElement });
+  } catch (err) {
+    console.error("Error deleting ITS Element:", err);
+    res.status(500).json({ error: "Failed to delete ITS Element." });
+  }
+
+  //Deletes Manufactuer
+  const { manufacturerDelete, manufactuerToDelete } = req.body;
+
+  if (!manufacturerDelete || !manufactuerToDelete) {
+    return res.status(400).json({ error: "Missing manufacturerDelete or manufactuerToDelete." });
+  }
+
+  try {
+    const doc = await ITSwh.findOne({ type: 'ITSwh' });
+    if (!doc) return res.status(404).json({ error: "ITSwh not found." });
+
+    const currentList = doc.manufacturer.get(manufacturerDelete) || [];
+    const updatedList = currentList.filter(m => m !== manufactuerToDelete);
+
+    doc.manufacturer.set(manufacturerDelete, updatedList);
+    await doc.save();
+
+    res.json({ message: "Manufacturer deleted", manufacturer: doc.manufacturer });
+  } catch (err) {
+    console.error("Error deleting manufacturer:", err);
+    res.status(500).json({ error: "Failed to delete manufacturer." });
+  }
+  
+  //Deletes Location
+  const { locationDelete, locationToDelete } = req.body;
+
+  if (!locationDelete || !locationToDelete) {
+    return res.status(400).json({ error: "Missing locationDelete or locationToDelete." });
+  }
+
+  try {
+    const doc = await ITSwh.findOne({ type: 'ITSwh' });
+    if (!doc) return res.status(404).json({ error: "ITSwh not found." });
+
+    const currentList = doc.makesByDeviceType.get(locationDelete) || [];
+    const updatedList = currentList.filter(m => m !== locationToDelete);
+
+    doc.location.set(locationDelete, updatedList);
+    await doc.save();
+
+    res.json({ message: "Location deleted", location: doc.makesByDeviceType });
+  } catch (err) {
+    console.error("Error deleting location:", err);
+    res.status(500).json({ error: "Failed to delete location." });
+  }
+
+  //Deletes Quantity
+  const { quantityDelete, quantityToDelete } = req.body;
+
+  if (!quantityDelete || !quantityToDelete) {
+    return res.status(400).json({ error: "Missing quantityDelete or quantityToDelete." });
+  }
+
+  try {
+    const doc = await ITSwh.findOne({ type: 'ITSwh' });
+    if (!doc) return res.status(404).json({ error: "ITSwh not found." });
+
+    const currentList = doc.quantity.get(quantityDelete) || [];
+    const updatedList = currentList.filter(m => m !== quantityToDelete);
+
+    doc.quantity.set(quantityDelete, updatedList);
+    await doc.save();
+
+    res.json({ message: "Quantity deleted", quantity: doc.quantity });
+  } catch (err) {
+    console.error("Error deleting quantity:", err);
+    res.status(500).json({ error: "Failed to delete quantity." });
+  }
+});
+
+//Renames ITS Element, Manufacturer, Location, and Quantity
+app.put('/api/ITSwh', async (req, res) => {
+  //ITS Element Rename
+  const { ITSElementRename, oldITSElement, newITSElement } = req.body;
+
+  if (!ITSElementRename || !oldITSElement || !newITSElement) {
+    return res.status(400).json({ error: "Missing ITSElementRename, oldITSElement, or newITSElement." });
+  }
+
+  try {
+    const doc = await ITSwh.findOne({ type: 'ITSwh' });
+    if (!doc) return res.status(404).json({ error: "ITSwh not found." });
+
+    const currentList = doc.ITSElement.get(ITSElementRename) || [];
+    const index = currentList.indexOf(oldITSElement);
+
+    if (index === -1) {
+      return res.status(404).json({ error: "Old ITS Element not found in list." });
+    }
+
+    currentList[index] = newITSElement;
+    doc.ITSElement.set(ITSElementRename, currentList);
+    await doc.save();
+
+    res.json({ message: "ITS Element renamed", ITSElement: doc.ITSElement });
+  } catch (err) {
+    console.error("Error renaming ITS Element:", err);
+    res.status(500).json({ error: "Failed to rename ITS Element." });
+  }
+
+  //Manufacturer Rename
+  const { manufacturerRename, oldManufacturer, newManufacturer } = req.body;
+
+  if (!manufacturerRename || !oldManufacturer || !newManufacturer) {
+    return res.status(400).json({ error: "Missing manufacturerRename, oldManufacturer, or newManufacturer." });
+  }
+
+  try {
+    const doc = await ITSwh.findOne({ type: 'ITSwh' });
+    if (!doc) return res.status(404).json({ error: "ITSwh not found." });
+
+    const currentList = doc.manufacturer.get(manufacturerRename) || [];
+    const index = currentList.indexOf(oldManufacturer);
+
+    if (index === -1) {
+      return res.status(404).json({ error: "Old manufacturer not found in list." });
+    }
+
+    currentList[index] = newManufacturer;
+    doc.manufacturer.set(manufacturerRename, currentList);
+    await doc.save();
+
+    res.json({ message: "Manufacturer renamed", manufacturer: doc.manufacturer });
+  } catch (err) {
+    console.error("Error renaming manufacturer:", err);
+    res.status(500).json({ error: "Failed to rename manufacturer." });
+  }
+
+  //Location Rename
+  const { locationRename, oldLocation, newLocation } = req.body;
+
+  if (!locationRename || !oldLocation || !newLocation) {
+    return res.status(400).json({ error: "Missing locationRename, oldLocation, or newLocation." });
+  }
+
+  try {
+    const doc = await ITSwh.findOne({ type: 'ITSwh' });
+    if (!doc) return res.status(404).json({ error: "ITSwh not found." });
+
+    const currentList = doc.location.get(locationRename) || [];
+    const index = currentList.indexOf(oldLocation);
+
+    if (index === -1) {
+      return res.status(404).json({ error: "Old location not found in list." });
+    }
+
+    currentList[index] = newLocation;
+    doc.location.set(locationRename, currentList);
+    await doc.save();
+
+    res.json({ message: "Location renamed", location: doc.location });
+  } catch (err) {
+    console.error("Error renaming location:", err);
+    res.status(500).json({ error: "Failed to rename location." });
+  }
+
+  //Quantity rename
+  const { quantityRename, oldQuantity, newQuantity } = req.body;
+
+  if (!quantityRename || !oldQuantity || !newQuantity) {
+    return res.status(400).json({ error: "Missing quantityRename, oldQuantity, or newQuantity." });
+  }
+
+  try {
+    const doc = await ITSwh.findOne({ type: 'ITSwh' });
+    if (!doc) return res.status(404).json({ error: "ITSwh not found." });
+
+    const currentList = doc.quantity.get(quantityRename) || [];
+    const index = currentList.indexOf(oldQuantity);
+
+    if (index === -1) {
+      return res.status(404).json({ error: "Quantity not found in list." });
+    }
+
+    currentList[index] = newQuantity;
+    doc.quantity.set(quantityRename, currentList);
+    await doc.save();
+
+    res.json({ message: "Quantity renamed", quantity: doc.quantity });
+  } catch (err) {
+    console.error("Error renaming quantity:", err);
+    res.status(500).json({ error: "Failed to rename quantity." });
+  }
+});
+*/
 const PORT = process.env.PORT || 5000;
 app.listen(5000, '0.0.0.0', () => {
   console.log('Server running on port 5000');

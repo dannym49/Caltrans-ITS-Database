@@ -73,7 +73,7 @@ function ProjectLog() {
 
   return (
     <Container>
-      <Typography variant="h4" gutterBottom>Project Log</Typography>
+      <Typography variant="h4" gutterBottom>ITS Site Edit Log</Typography>
   
       <Paper elevation={2} sx={{ mb: 4, p: 2 }}>
         {log.length === 0 ? (

@@ -1,11 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import { useState } from "react";
 import {
   Button, Container, Typography, Box,
-  Table, TableBody, TableCell,
-  TableContainer, TableHead, TableRow, Paper, CircularProgress,
 } 
 
 from '@mui/material';
@@ -14,6 +10,9 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import HomeIcon from '@mui/icons-material/Home';
 import { ITSwhAdd } from './ITSwhAdd';
 import { ITSwhTable } from './ITSwhTable';
+import axios from "axios";
+import ITSwhLog from './ITSwhLog';
+
 
 
 // Define Caltrans Color Theme
@@ -33,42 +32,114 @@ const theme = createTheme({
   },
 });
 
+
 function ITSwh() {
+
     const [ITSwhAddOpen, setITSwhAddOpen] = useState(false);
 
-    const [rows, setRows] = useState([
-      {ITSElement: "test", manufacturer: "test", model: "test", location: "test", quantity: "test",}
-    ]);
+    
+    const [rows, setRows] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     const [rowToEdit, setRowToEdit] = useState(null);
+    const [isEditing, setIsEditing] = useState(false); 
 
-    const handleDeleteRow = (targetIndex) => {
-      setRows(rows.filter((_, idx) => idx !== targetIndex));
+    // Log dialog state & logs
+    const [logDialogOpen, setLogDialogOpen] = useState(false);
+    const [editLogs, setEditLogs] = useState([]);
+
+    //This funtion will handle saved changes and prompt for editor's name for log purposes
+    const handleSaveChanges = async () => {
+      const editedBy = prompt("Enter your name for the log:");
+      if (!editedBy || editedBy.trim() === "") {
+        alert("Name is required to save changes.");
+        
+        return;
+    }
+    // Add a log entry (customize action text as needed)
+    const timestamp = new Date().toLocaleString();
+    setEditLogs(prev => [
+      ...prev,
+      {
+        editedBy,
+        timestamp,
+        action: "Saved changes to the warehouse inventory.",
+      }
+    ]);
+
+    setIsEditing(false)
+
+  };
+
+    //Modification log
+    const onAdjustQuantity = async (row, delta) => {
+      const current = Number(row.quantity) || 0;
+      const next = current + delta;
+      if (next < 0) return; // prevent negative
+
+      // Optimistic UI update
+      setRows(prev =>
+        prev.map(r => (r._id === row._id ? { ...r, quantity: next } : r))
+      );
+
+      try {
+        await axios.put(`http://10.44.2.198:5000/api/itswh/${row._id}`, {
+          ITSElement: row.ITSElement,
+          manufacturer: row.manufacturer,
+          model: row.model,
+          location: row.location,
+          quantity: next,
+        });
+      } catch (err) {
+        console.error("Failed to update quantity:", err);
+        // Rollback on error
+        setRows(prev =>
+          prev.map(r => (r._id === row._id ? { ...r, quantity: current } : r))
+        );
+        alert("Failed to update quantity.");
+      }
+    };
+
+    const handleDeleteRow = async (id) => {
+      console.log("Attempting to delete ID:", id); // Display a confirmation dialog
+      
+      const userConfirmed = window.confirm("Are you sure you want to delete this record?"); // Warning message prompt before deleting
+      if (!userConfirmed) return;
+
+      try {
+        const response = await axios.delete(`http://10.44.2.198:5000/api/itswh/${id}`); 
+        console.log("Delete successful:", response.data);
+        setRows(prev => prev.filter(row => row._id !== id));
+      } catch (err) {
+        console.error("Delete failed:", err.response?.data || err.message);
+        alert("Error deleting entry.");
+      }
     };
 
     const handleEditRow = (idx) => {
       setRowToEdit(idx);
-
-      setModalOpen(true);
-    };
-
-    const handleSubmit = (newRow) => {
-      rowToEdit === null
-        ? setRows([...rows, newRow])
-        : setRows(
-            rows.map((currRow, idx) => {
-              if (idx !== rowToEdit) return currRow;
-
-              return newRow;
-            })
-          );
+      setITSwhAddOpen(true);
     };
 
     const navigate = useNavigate();
 
+    useEffect(() => {
+      let cancelled = false;
+      (async () => {
+        try {
+          const { data } = await axios.get(`http://10.44.2.198:5000/api/itswh`);
+          if (!cancelled) setRows(data);
+        } catch (e) {
+          console.error("Failed to load ITSwh items:", e);
+        } finally {
+          if (!cancelled) setLoading(false);
+        }
+      })();
+      return () => { cancelled = true; };
+    }, []);
+
   return (
 
-      //Overall Header for Page with Home Icon & back to home arrow
      <Container>
         <Box sx={{ //Creates box for ITS Warehouse header
           background: caltransBlue,
@@ -115,39 +186,61 @@ function ITSwh() {
               <Button 
                 variant="contained" 
                 color="primary" 
-                //onClick={() => navigate(`/project/${id}/log`)}
+                onClick={() => setLogDialogOpen(true)}
                 >
                 View Log
               </Button>
-        
-            {/* Right-aligned Edit/Save Button */}
-              <Button 
-                variant="contained" 
-                color="primary">
+
+          {/* Right-aligned Edit/Save Button. When "Edit" is clicked, edit mode enabled and "save" button will appear. */}
+            {!isEditing ? (
+              <Button variant="contained" color="primary" onClick={() => setIsEditing(true)}>
                 Edit
               </Button>
-          </Box>
+              ) : (
+              <Box display="flex" gap={1}>
+                <Button variant="contained" color="primary" onClick={() => setIsEditing(false)}>
+                  Back
+                </Button>
+                <Button variant="contained" color="primary" onClick={handleSaveChanges}>
+                  Save
+                </Button>
+              </Box>
+              )
+            }
+        </Box>
 
-        {/* Page for when you click on "Add" button to input information into ITS Warehouse*/}
+        {/* Add Button opens ITSwhAdd Page to enable user to input information into ITS Warehouse*/}
         <div>
-          <ITSwhTable rows={rows} deleteRow={handleDeleteRow} editRow={handleEditRow} />
+          <ITSwhTable rows={rows} isEditing={isEditing} deleteRow={handleDeleteRow} editRow={handleEditRow} onAdjustQuantity={onAdjustQuantity} />
           <button className="btn" onClick={() => setITSwhAddOpen(true)} 
-            variant="contained">
+            variant="contained"
+            >
             ADD
           </button>
-          {ITSwhAddOpen && ( 
-            <ITSwhAdd 
-              closeITSwhAdd={() => {
-                setITSwhAddOpen(false);
-                setRowToEdit(null);
+
+          {/* When "Add" is clicked, opens page to input information and saves information on submit */}
+          {ITSwhAddOpen && (
+            <ITSwhAdd
+              closeITSwhAdd={() => { setITSwhAddOpen(false); setRowToEdit(null); }}
+              onSubmit={(saved) => {
+                setRows(prev =>
+                  rowToEdit === null
+                    ? [saved, ...prev]                 
+                    : prev.map((r, i) => (i === rowToEdit ? saved : r)) 
+                );
               }}
-              onSubmit={handleSubmit}
-              defaultValue={rowToEdit !== null && rows[rowToEdit]}
+              defaultValue={rowToEdit !== null ? rows[rowToEdit] : null}
             />
-            )}
+          )}
         </div>
+        {/* ITSwhLog dialog */}
+        <ITSwhLog
+          logs={editLogs}
+          open={logDialogOpen}
+          onClose={() => setLogDialogOpen(false)}
+        />
       </Container>
   );
 }
 
-export default ITSwh;
+export default ITSwh; 
